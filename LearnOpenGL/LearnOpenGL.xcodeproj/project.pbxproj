@@ -10,11 +10,11 @@
 		4B50D9E92275F6E100B826D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D9E82275F6E100B826D7 /* main.cpp */; };
 		4B50D9FA2275F8A900B826D7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		4B50D9FF2275F98500B826D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D9FE2275F98500B826D7 /* main.cpp */; };
-		D7A33C2A2276AD6700B58EEF /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D7A33C292276AD6700B58EEF /* glad.c */; };
-		D7A33C2B2276AD6700B58EEF /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D7A33C292276AD6700B58EEF /* glad.c */; };
 		D7A33C2D2276AEE000B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D7A33C2E2276CE4B00B58EEF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7A33C2F2276CE6900B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
+		D7A33C352276E64200B58EEF /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D7A33C342276E64200B58EEF /* glad.c */; };
+		D7A33C362276E64200B58EEF /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D7A33C342276E64200B58EEF /* glad.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,11 +44,11 @@
 		4B50D9E82275F6E100B826D7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4B50D9F12275F7EA00B826D7 /* LearnOpenGL-01-窗口 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-01-窗口"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B50D9FE2275F98500B826D7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D7A33C292276AD6700B58EEF /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = SOURCE_ROOT; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		D7A33C302276E31E00B58EEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D7A33C312276E54E00B58EEF /* 01-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-README.md"; sourceTree = "<group>"; };
 		D7A33C322276E58700B58EEF /* 02-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "02-README.md"; sourceTree = "<group>"; };
+		D7A33C342276E64200B58EEF /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				D7A33C302276E31E00B58EEF /* README.md */,
-				4B50DA032275F9D000B826D7 /* libs */,
+				D7A33C332276E64200B58EEF /* libs */,
 				4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-Window */,
 				4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-Triangle */,
 				4B50D9D22275DC2500B826D7 /* Products */,
@@ -121,10 +121,10 @@
 			path = "LearnOpenGL-01-Window";
 			sourceTree = "<group>";
 		};
-		4B50DA032275F9D000B826D7 /* libs */ = {
+		D7A33C332276E64200B58EEF /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				D7A33C292276AD6700B58EEF /* glad.c */,
+				D7A33C342276E64200B58EEF /* glad.c */,
 			);
 			path = libs;
 			sourceTree = "<group>";
@@ -207,7 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B50D9E92275F6E100B826D7 /* main.cpp in Sources */,
-				D7A33C2B2276AD6700B58EEF /* glad.c in Sources */,
+				D7A33C362276E64200B58EEF /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B50D9FF2275F98500B826D7 /* main.cpp in Sources */,
-				D7A33C2A2276AD6700B58EEF /* glad.c in Sources */,
+				D7A33C352276E64200B58EEF /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
