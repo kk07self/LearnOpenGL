@@ -76,8 +76,8 @@
 			children = (
 				D7A33C302276E31E00B58EEF /* README.md */,
 				4B50DA032275F9D000B826D7 /* libs */,
-				4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-窗口 */,
-				4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-三角形 */,
+				4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-Window */,
+				4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-Triangle */,
 				4B50D9D22275DC2500B826D7 /* Products */,
 				4B50D9DB2275DD0E00B826D7 /* Frameworks */,
 			);
@@ -101,20 +101,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-三角形 */ = {
+		4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-Triangle */ = {
 			isa = PBXGroup;
 			children = (
 				4B50D9E82275F6E100B826D7 /* main.cpp */,
 			);
-			path = "LearnOpenGL-02-三角形";
+			path = "LearnOpenGL-02-Triangle";
 			sourceTree = "<group>";
 		};
-		4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-窗口 */ = {
+		4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-Window */ = {
 			isa = PBXGroup;
 			children = (
 				4B50D9FE2275F98500B826D7 /* main.cpp */,
 			);
-			path = "LearnOpenGL-01-窗口";
+			path = "LearnOpenGL-01-Window";
 			sourceTree = "<group>";
 		};
 		4B50DA032275F9D000B826D7 /* libs */ = {
