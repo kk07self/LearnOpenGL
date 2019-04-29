@@ -47,6 +47,8 @@
 		D7A33C292276AD6700B58EEF /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = SOURCE_ROOT; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		D7A33C302276E31E00B58EEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D7A33C312276E54E00B58EEF /* 01-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-README.md"; sourceTree = "<group>"; };
+		D7A33C322276E58700B58EEF /* 02-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "02-README.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				4B50D9E82275F6E100B826D7 /* main.cpp */,
+				D7A33C322276E58700B58EEF /* 02-README.md */,
 			);
 			path = "LearnOpenGL-02-Triangle";
 			sourceTree = "<group>";
@@ -113,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				4B50D9FE2275F98500B826D7 /* main.cpp */,
+				D7A33C312276E54E00B58EEF /* 01-README.md */,
 			);
 			path = "LearnOpenGL-01-Window";
 			sourceTree = "<group>";
