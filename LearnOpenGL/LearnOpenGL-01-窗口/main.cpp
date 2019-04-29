@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     // 主板版本号
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     // 次版本号
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     // 使用的是核心模式(Core-profile)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     
