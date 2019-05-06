@@ -13,6 +13,7 @@
 		D7042F05227EBC9F002490C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7042F04227EBC9F002490C4 /* main.cpp */; };
 		D7042F09227EBD1F002490C4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7042F0A227EBD36002490C4 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
+		D70AC3302280296A0005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D7A33C342276E64200B58EEF /* glad.c */; };
 		D7A33C2D2276AEE000B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D7A33C2E2276CE4B00B58EEF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7A33C2F2276CE6900B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -279,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7042F05227EBC9F002490C4 /* main.cpp in Sources */,
+				D70AC3302280296A0005854D /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +486,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glfw/3.3/lib,
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = "-Wno-documentation";
@@ -502,6 +505,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/usr/local/Cellar/glfw/3.3/lib,
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = "-Wno-documentation";
