@@ -58,6 +58,7 @@
 		4B50D9F12275F7EA00B826D7 /* LearnOpenGL-01-窗口 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-01-窗口"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B50D9FE2275F98500B826D7 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		4B50DA0C22807B8400B826D7 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		4BAB8A67228846A100A8D406 /* 03-REARME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "03-REARME.md"; sourceTree = "<group>"; };
 		D7042F02227EBC9F002490C4 /* LearnOpenGL-03-Shader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-03-Shader"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7042F04227EBC9F002490C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				D7042F04227EBC9F002490C4 /* main.cpp */,
+				4BAB8A67228846A100A8D406 /* 03-REARME.md */,
 			);
 			path = "LearnOpenGL-03-Shader";
 			sourceTree = "<group>";
@@ -479,6 +481,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HA5G797698;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				HEADER_SEARCH_PATHS = (
 					"$(glfw_header)",
 					/usr/local/include,
@@ -498,6 +501,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HA5G797698;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				HEADER_SEARCH_PATHS = (
 					"$(glfw_header)",
 					/usr/local/include,
