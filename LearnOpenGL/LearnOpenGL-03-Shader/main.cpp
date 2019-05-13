@@ -10,6 +10,7 @@
 #include <cmath>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "shader.hpp"
 
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -59,25 +60,25 @@ const unsigned int SCR_HEIGHT = 600;
 #pragma mark - 顶点着色器---片段着色器---数据源自顶点数组对象
 // 例如
 // GLSL顶点着色器源码
-const char *vertexShaderSource =
-"#version 330 core\n"
-"layout (location = 0) in vec3 aPos;\n"   // 从0的位置区
-"layout (location = 1) in vec3 aColor;\n" // 从1的位置取
-"out vec3 vertexColor;\n" // 顶点着色器的颜色输出
-"void main() {\n"
-"   gl_Position = vec4(aPos, 1.0);\n"
-"   vertexColor = aColor;\n" // 这里给棕色
-"}\n\0";
-
-// GLSL片段着色器，计算像素最后的颜色输出
-const char *fragmentShaderSource =
-"#version 330 core\n"
-"out vec4 FragColor;\n"
-"in  vec3 vertexColor;\n" // 接受顶点着色器传递的值
-"void main() {\n"
-//"   FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
-"   FragColor = vec4(vertexColor, 1.0);\n" // 将顶点着色器传来的文理颜色进行赋值
-"}\n\0";
+//const char *vertexShaderSource =
+//"#version 330 core\n"
+//"layout (location = 0) in vec3 aPos;\n"   // 从0的位置区
+//"layout (location = 1) in vec3 aColor;\n" // 从1的位置取
+//"out vec3 vertexColor;\n" // 顶点着色器的颜色输出
+//"void main() {\n"
+//"   gl_Position = vec4(aPos, 1.0);\n"
+//"   vertexColor = aColor;\n" // 这里给棕色
+//"}\n\0";
+//
+//// GLSL片段着色器，计算像素最后的颜色输出
+//const char *fragmentShaderSource =
+//"#version 330 core\n"
+//"out vec4 FragColor;\n"
+//"in  vec3 vertexColor;\n" // 接受顶点着色器传递的值
+//"void main() {\n"
+////"   FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
+//"   FragColor = vec4(vertexColor, 1.0);\n" // 将顶点着色器传来的文理颜色进行赋值
+//"}\n\0";
 
 int main(int argc, const char * argv[]) {
     
@@ -112,51 +113,8 @@ int main(int argc, const char * argv[]) {
         return -1;
     }
     
-    
-    // build and compile our shader program
-    // ------------------------------------
-    // vertex shader, 顶点着色器
-    int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-    glCompileShader(vertexShader);
-    // 查看编译结果
-    int success;
-    char infoLog[512];
-    glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        // 编译失败
-        glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-        std::cout << "Error::Sharder::Vertex::Compilation_failed\n" << infoLog << std::endl;
-    }
-    
-    // fragment shader, 片段着色器
-    int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    // 将着色器源码附加到着色器对象上，并编译
-    glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-    glCompileShader(fragmentShader);
-    // 查看编译结果
-    glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-    if (!success) {
-        glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-        std::cout << "Error::Sharder::Fragment::Compilation_failed\n" << infoLog << std::endl;
-    }
-    
-    // link shader, 链接着色器，通过着色器程序进行多个着色器合并
-    int shaderProgram = glCreateProgram();
-    glAttachShader(shaderProgram, vertexShader);
-    glAttachShader(shaderProgram, fragmentShader);
-    glLinkProgram(shaderProgram);
-    // 查看链接是否成功
-    glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-    if (!success) {
-        // 链接失败
-        glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-        std::cout << "Error::Sharder::Program::Linking_failed\n" << infoLog << std::endl;
-    }
-    
-    // 删除shader，链接成功后就不需要了，需要清除他们
-    glDeleteShader(vertexShader);
-    glDeleteShader(fragmentShader);
+    // 使用我们自定义的着色器类
+    Shader ourShader("Shader.vs","Shader.fs");
     
     unsigned int VAO, VBO; // 顶点数组对象，顶点缓冲对象，索引缓冲对象
     // 绘制三角形
@@ -191,7 +149,7 @@ int main(int argc, const char * argv[]) {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
     
-    glUseProgram(shaderProgram);
+
     // render loop
     while (!glfwWindowShouldClose(window)) {
         // input
@@ -203,6 +161,11 @@ int main(int argc, const char * argv[]) {
         // 清屏
         glClearColor(46/255.0f, 47/255.0f, 67/255.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+        
+        //    glUseProgram(shaderProgram);
+        
+        // 使用我们的着色器
+        ourShader.use();
         
         // 绘制三角形
         // 使用着色器程序进行渲染

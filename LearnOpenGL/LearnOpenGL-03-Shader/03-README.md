@@ -222,5 +222,240 @@ glEnableVertexAttribArray(1);
 
 通过以上的调整，运行代码，即可看到效果。
 
-## 4、自定义着色器
 
+## 4、自定义着色器类
+创建、编译、绑定、管理着色器是一系列重复、麻烦的事，在这里会写一个类来统一管理这些工作，避免繁杂重复的工作。
+
+### 4.1 创建着色器类
+#### 4.1.1 创建shader文件
+这一步我们创建一个shader文件`shader.hpp`，在里面倒入需要的头文件
+```
+#include <stdio.h>
+#include <glad/glad.h> // 包含glad来获取所有的必须OpenGL头文件
+
+#include <string>
+#include <fstream> // 读取文件流
+#include <sstream>
+#include <iostream>
+```
+
+#### 4.1.2 创建Shader类
+在头文件`shader.hpp`中创建`Shader`类；
+添加一个`ID`属性，用于绑定着色器的时候使用；
+创建`构造函数`和`使用函数`，这里`构造函数`需要两个参数，一个是`vertexPath`和`fragmentPath`，对应`顶点着色器`和`片段着色器`源文件路径
+```
+class Shader
+{
+public:
+// 程序ID
+unsigned int ID;
+
+// 构造器读取并构建着色器
+Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
+// 使用/激活程序
+void use();
+};
+```
+
+#### 4.1.3 构造函数等函数实现
+构造函数除了创建`Shader`类的对象，还需要完成`着色器`的创建、编译和绑定
+
+- 1、读取文件中`着色器`的源代码流
+```
+// 1. 从文件滤镜获取顶点/片段着色器
+std::string vertexCode;
+std::string fragmentCode;
+std::ifstream vShaderFile;
+std::ifstream fShaderFile;
+
+// 保证ifstream对象可抛出异常
+vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+try {
+// 打开文件
+vShaderFile.open(vertexPath);
+fShaderFile.open(fragmentPath);
+// 定义数据流
+std::stringstream vShaderStream, fShaderStream;
+// 读取文件数据到数据流中
+vShaderStream << vShaderFile.rdbuf();
+fShaderStream << fShaderFile.rdbuf();
+
+// 关闭文件
+vShaderFile.close();
+fShaderFile.close();
+
+// 转换数据流到string
+vertexCode = vShaderStream.str();
+fragmentCode = fShaderStream.str();
+} catch (std::ifstream::failure e) {
+std::cout << "ERROR:: SHADER::FILE_NOT_SUCCESFULLY_READ" << std::endl;
+}
+
+const char *vShaderCode = vertexCode.c_str();
+const char *fShaderCode = fragmentCode.c_str();
+```
+- 2、创建、编译、绑定着色器
+```
+// 2. 编译着色器
+unsigned int vertex, fragment;
+// 顶点着色器创建、编译
+vertex = glCreateShader(GL_VERTEX_SHADER);
+glShaderSource(vertex, 1, &vShaderCode, NULL);
+glCompileShader(vertex);
+checkCompileErrors(vertex, "VERTEX");
+// 片段着色器创建、编译
+fragment = glCreateShader(GL_FRAGMENT_SHADER);
+glShaderSource(fragment, 1, &fShaderCode, NULL);
+glCompileShader(fragment);
+checkCompileErrors(fragment, "FRAGMENT");
+
+// 3. 着色器绑定
+ID = glCreateProgram();
+glAttachShader(ID, vertex);
+glAttachShader(ID, fragment);
+glLinkProgram(ID);
+checkCompileErrors(ID, "PROGRAM");
+
+glDeleteShader(vertex);
+glDeleteShader(fragment);
+```
+从前几个示例中我们可以看到，每一步的编译、绑定都需要check下是否成功，为了避免代码冗余，这里将check的代码封装到了一个私有方法中。
+```
+
+private:
+// 查看编译/ 绑定是否成功
+    void checkCompileErrors(unsigned int shader, std::string type) {
+        int success;
+        char infoLog[1024];
+        if (type != "PROGRAM") {
+            glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+            if (!success)
+            {
+                glGetShaderInfoLog(shader, 1024, NULL, infoLog);
+                std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+            }
+        } else {
+            glGetProgramiv(shader, GL_LINK_STATUS, &success);
+            if (!success)
+            {
+                glGetProgramInfoLog(shader, 1024, NULL, infoLog);
+                std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
+            }
+        }
+    }
+```
+
+- 4、Shader的使用
+这里很简单，就是拿到程序的`ID`（保存在类`Shader`的属性`ID`中），进行使用
+```
+// 使用/激活程序
+void use()
+{
+    glUseProgram(ID);
+}
+```
+
+### 4.2 创建着色器源码文件
+这一步是将`顶点着色器`和`片段着色器`的源码放在单独的文件中，这一步即对于上一步中`Shader`类构造方法中两个文件路径参数（`vertexPath`和`fragmentPath`）。
+这里新建了两个空文件，`Shader.vs`和`Shader.fs`分别对于`顶点着色器`和`片段着色器`。
+然后将源码放到对于的文件中。
+`Shader.vs`文件中的`着色器`源码是：
+```
+#version 330 core
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+out vec3 vertexColor;
+void main() {
+gl_Position = vec4(aPos, 1.0);
+vertexColor = aColor;
+}
+```
+`Shader.fs`文件中的`着色器`源码是：
+```
+#version 330 core
+out vec4 FragColor;
+in  vec3 vertexColor;
+void main() {
+FragColor = vec4(vertexColor, 1.0);
+}
+
+```
+
+到这一步为止，我们的轮子造好了，下一步就是使用了。
+
+### 4.3 使用自定义的着色器类
+和之前没有使用`着色器`类相比，代码上只有两部分出入，一是着色器的创建、编译和绑定，二是着色器程序的使用。
+
+- 1、着色器的创建、编译和绑定
+将之前创建、编译、和绑定的代码全部删除
+即这些代码删除
+```
+// build and compile our shader program
+// ------------------------------------
+// vertex shader, 顶点着色器
+int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+glCompileShader(vertexShader);
+// 查看编译结果
+int success;
+char infoLog[512];
+glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
+if (!success) {
+    // 编译失败
+    glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
+    std::cout << "Error::Sharder::Vertex::Compilation_failed\n" << infoLog << std::endl;
+}
+
+// fragment shader, 片段着色器
+int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+// 将着色器源码附加到着色器对象上，并编译
+glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
+glCompileShader(fragmentShader);
+// 查看编译结果
+glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
+if (!success) {
+    glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
+    std::cout << "Error::Sharder::Fragment::Compilation_failed\n" << infoLog << std::endl;
+}
+
+// link shader, 链接着色器，通过着色器程序进行多个着色器合并
+int shaderProgram = glCreateProgram();
+glAttachShader(shaderProgram, vertexShader);
+glAttachShader(shaderProgram, fragmentShader);
+glLinkProgram(shaderProgram);
+// 查看链接是否成功
+glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+if (!success) {
+    // 链接失败
+    glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+    std::cout << "Error::Sharder::Program::Linking_failed\n" << infoLog << std::endl;
+}
+
+// 删除shader，链接成功后就不需要了，需要清除他们
+glDeleteShader(vertexShader);
+glDeleteShader(fragmentShader);
+
+```
+替换成以下代码
+```
+// 使用我们自定义的着色器类
+Shader ourShader("Shader.vs","Shader.fs");
+```
+这一步是用`Shader`类的构造方法，创建了一个`ourShader`对象，这里传入了着色器源码的文件路径。
+内部会完成着色器的创建、编译和绑定。
+
+- 2、着色器对象的使用
+将之前使用程序的代码
+```
+glUseProgram(shaderProgram);
+```
+替换成
+```
+ourShader.use();
+```
+即可。
+
+以上就完成了自定义着色器类的使用，相比于之前那些冗余的代码，这样的方式更加简介清晰。
+运行程序，即可看到和之前一样的效果。
