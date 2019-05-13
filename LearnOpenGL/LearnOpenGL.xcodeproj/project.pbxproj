@@ -17,6 +17,7 @@
 		D70AD06F228923370005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
 		D70AD070228923370005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
 		D70AD071228923370005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
+		D70AD08422893FC10005854D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD08322893FC10005854D /* main.cpp */; };
 		D7A33C2D2276AEE000B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D7A33C2E2276CE4B00B58EEF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7A33C2F2276CE6900B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -50,6 +51,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		D70AD07F22893FC00005854D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +76,8 @@
 		D70AD06C22891F840005854D /* Shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.vs; sourceTree = "<group>"; };
 		D70AD06D22891F910005854D /* Shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.fs; sourceTree = "<group>"; };
 		D70AD06E228923370005854D /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
+		D70AD08122893FC00005854D /* LearnOpenGL-04-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-04-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70AD08322893FC10005854D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		D7A33C302276E31E00B58EEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D7A33C312276E54E00B58EEF /* 01-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-README.md"; sourceTree = "<group>"; };
@@ -100,6 +112,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D70AD07E22893FC00005854D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -111,6 +130,7 @@
 				4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-Window */,
 				4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-Triangle */,
 				D7042F03227EBC9F002490C4 /* LearnOpenGL-03-Shader */,
+				D70AD08222893FC10005854D /* LearnOpenGL-04-Texture */,
 				4B50D9D22275DC2500B826D7 /* Products */,
 				4B50D9DB2275DD0E00B826D7 /* Frameworks */,
 			);
@@ -122,6 +142,7 @@
 				4B50D9E62275F6E100B826D7 /* LearnOpenGL-02-三角形 */,
 				4B50D9F12275F7EA00B826D7 /* LearnOpenGL-01-窗口 */,
 				D7042F02227EBC9F002490C4 /* LearnOpenGL-03-Shader */,
+				D70AD08122893FC00005854D /* LearnOpenGL-04-Texture */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +185,14 @@
 				D70AD06D22891F910005854D /* Shader.fs */,
 			);
 			path = "LearnOpenGL-03-Shader";
+			sourceTree = "<group>";
+		};
+		D70AD08222893FC10005854D /* LearnOpenGL-04-Texture */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD08322893FC10005854D /* main.cpp */,
+			);
+			path = "LearnOpenGL-04-Texture";
 			sourceTree = "<group>";
 		};
 		D7A33C332276E64200B58EEF /* libs */ = {
@@ -228,6 +257,23 @@
 			productReference = D7042F02227EBC9F002490C4 /* LearnOpenGL-03-Shader */;
 			productType = "com.apple.product-type.tool";
 		};
+		D70AD08022893FC00005854D /* LearnOpenGL-04-Texture */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D70AD08522893FC10005854D /* Build configuration list for PBXNativeTarget "LearnOpenGL-04-Texture" */;
+			buildPhases = (
+				D70AD07D22893FC00005854D /* Sources */,
+				D70AD07E22893FC00005854D /* Frameworks */,
+				D70AD07F22893FC00005854D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LearnOpenGL-04-Texture";
+			productName = "LearnOpenGL-04-Texture";
+			productReference = D70AD08122893FC00005854D /* LearnOpenGL-04-Texture */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,6 +290,9 @@
 						CreatedOnToolsVersion = 10.2.1;
 					};
 					D7042F01227EBC9F002490C4 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					D70AD08022893FC00005854D = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -263,6 +312,7 @@
 				4B50D9F02275F7EA00B826D7 /* LearnOpenGL-01-窗口 */,
 				4B50D9E52275F6E100B826D7 /* LearnOpenGL-02-三角形 */,
 				D7042F01227EBC9F002490C4 /* LearnOpenGL-03-Shader */,
+				D70AD08022893FC00005854D /* LearnOpenGL-04-Texture */,
 			);
 		};
 /* End PBXProject section */
@@ -293,6 +343,14 @@
 				4BAB8A6D2288694B00A8D406 /* shader.cpp in Sources */,
 				D7042F05227EBC9F002490C4 /* main.cpp in Sources */,
 				D70AD071228923370005854D /* glad.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D70AD07D22893FC00005854D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D70AD08422893FC10005854D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +584,24 @@
 			};
 			name = Release;
 		};
+		D70AD08622893FC10005854D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M6DX88HX28;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D70AD08722893FC10005854D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M6DX88HX28;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -561,6 +637,15 @@
 			buildConfigurations = (
 				D7042F06227EBC9F002490C4 /* Debug */,
 				D7042F07227EBC9F002490C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D70AD08522893FC10005854D /* Build configuration list for PBXNativeTarget "LearnOpenGL-04-Texture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D70AD08622893FC10005854D /* Debug */,
+				D70AD08722893FC10005854D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
