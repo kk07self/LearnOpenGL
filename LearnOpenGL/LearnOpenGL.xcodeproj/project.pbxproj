@@ -17,7 +17,12 @@
 		D70AD06F228923370005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
 		D70AD070228923370005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
 		D70AD071228923370005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
-		D70AD08422893FC10005854D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD08322893FC10005854D /* main.cpp */; };
+		D70AD08A228941F20005854D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD089228941F20005854D /* main.cpp */; };
+		D70AD08F228991EB0005854D /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD08D228991EB0005854D /* shader.cpp */; };
+		D70AD094228993D00005854D /* stb_imageo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD092228993D00005854D /* stb_imageo.cpp */; };
+		D70AD095228999190005854D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
+		D70AD096228999510005854D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
+		D70AD097228999700005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
 		D7A33C2D2276AEE000B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D7A33C2E2276CE4B00B58EEF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7A33C2F2276CE6900B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -77,7 +82,17 @@
 		D70AD06D22891F910005854D /* Shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.fs; sourceTree = "<group>"; };
 		D70AD06E228923370005854D /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glad.c; sourceTree = "<group>"; };
 		D70AD08122893FC00005854D /* LearnOpenGL-04-Texture */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-04-Texture"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D70AD08322893FC10005854D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D70AD088228941D10005854D /* 04-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "04-README.md"; sourceTree = "<group>"; };
+		D70AD089228941F20005854D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D70AD08B2289508A0005854D /* stb_image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		D70AD08C228990360005854D /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		D70AD08D228991EB0005854D /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		D70AD08E228991EB0005854D /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		D70AD090228992BF0005854D /* shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		D70AD091228992CC0005854D /* shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
+		D70AD092228993D00005854D /* stb_imageo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_imageo.cpp; sourceTree = "<group>"; };
+		D70AD093228993D00005854D /* stb_imageo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stb_imageo.hpp; sourceTree = "<group>"; };
+		D70AD0982289A0110005854D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		D7A33C302276E31E00B58EEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D7A33C312276E54E00B58EEF /* 01-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-README.md"; sourceTree = "<group>"; };
@@ -116,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70AD095228999190005854D /* OpenGL.framework in Frameworks */,
+				D70AD096228999510005854D /* libglfw.3.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +207,17 @@
 		D70AD08222893FC10005854D /* LearnOpenGL-04-Texture */ = {
 			isa = PBXGroup;
 			children = (
-				D70AD08322893FC10005854D /* main.cpp */,
+				D70AD0982289A0110005854D /* awesomeface.png */,
+				D70AD08C228990360005854D /* container.jpg */,
+				D70AD08B2289508A0005854D /* stb_image.h */,
+				D70AD093228993D00005854D /* stb_imageo.hpp */,
+				D70AD092228993D00005854D /* stb_imageo.cpp */,
+				D70AD089228941F20005854D /* main.cpp */,
+				D70AD08E228991EB0005854D /* shader.hpp */,
+				D70AD08D228991EB0005854D /* shader.cpp */,
+				D70AD090228992BF0005854D /* shader.vs */,
+				D70AD091228992CC0005854D /* shader.fs */,
+				D70AD088228941D10005854D /* 04-README.md */,
 			);
 			path = "LearnOpenGL-04-Texture";
 			sourceTree = "<group>";
@@ -350,7 +377,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D70AD08422893FC10005854D /* main.cpp in Sources */,
+				D70AD08F228991EB0005854D /* shader.cpp in Sources */,
+				D70AD094228993D00005854D /* stb_imageo.cpp in Sources */,
+				D70AD08A228941F20005854D /* main.cpp in Sources */,
+				D70AD097228999700005854D /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +619,15 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M6DX88HX28;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"$(glfw_header)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.3/lib,
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -598,6 +637,15 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M6DX88HX28;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"$(glfw_header)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.3/lib,
+					"$(PROJECT_DIR)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
