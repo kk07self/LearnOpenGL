@@ -11,6 +11,7 @@
 		4B50D9FA2275F8A900B826D7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		4B50D9FF2275F98500B826D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D9FE2275F98500B826D7 /* main.cpp */; };
 		4BAB8A6D2288694B00A8D406 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8A6B2288694B00A8D406 /* shader.cpp */; };
+		4BAB8A73228AF78B00A8D406 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8A70228AF78B00A8D406 /* shader.cpp */; };
 		D7042F05227EBC9F002490C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7042F04227EBC9F002490C4 /* main.cpp */; };
 		D7042F09227EBD1F002490C4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7042F0A227EBD36002490C4 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -34,7 +35,6 @@
 		D70AD0C1228AAB240005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
 		D70AD0C2228AAE3F0005854D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D70AD0C3228AAE550005854D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
-		D70AD0C9228AB4BB0005854D /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD0C6228AB4BB0005854D /* shader.cpp */; };
 		D7A33C2D2276AEE000B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D7A33C2E2276CE4B00B58EEF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7A33C2F2276CE6900B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -106,6 +106,11 @@
 		4BAB8A67228846A100A8D406 /* 03-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "03-README.md"; sourceTree = "<group>"; };
 		4BAB8A6B2288694B00A8D406 /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
 		4BAB8A6C2288694B00A8D406 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		4BAB8A6F228AF78B00A8D406 /* shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		4BAB8A70228AF78B00A8D406 /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		4BAB8A71228AF78B00A8D406 /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		4BAB8A72228AF78B00A8D406 /* shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
+		4BAB8A74228AFF9F00A8D406 /* 06-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "06-README.md"; sourceTree = "<group>"; };
 		D7042F02227EBC9F002490C4 /* LearnOpenGL-03-Shader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-03-Shader"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7042F04227EBC9F002490C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D70AD06C22891F840005854D /* Shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.vs; sourceTree = "<group>"; };
@@ -134,10 +139,6 @@
 		D70AD0B1228A9CCC0005854D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		D70AD0B9228AAAF60005854D /* LearnOpenGL-06-CoordinateSystems */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-06-CoordinateSystems"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D70AD0BB228AAAF60005854D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D70AD0C5228AB4BB0005854D /* shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
-		D70AD0C6228AB4BB0005854D /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
-		D70AD0C7228AB4BB0005854D /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
-		D70AD0C8228AB4BB0005854D /* shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		D7A33C302276E31E00B58EEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D7A33C312276E54E00B58EEF /* 01-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-README.md"; sourceTree = "<group>"; };
@@ -260,6 +261,17 @@
 			path = "LearnOpenGL-01-Window";
 			sourceTree = "<group>";
 		};
+		4BAB8A6E228AF78B00A8D406 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				4BAB8A6F228AF78B00A8D406 /* shader.vs */,
+				4BAB8A70228AF78B00A8D406 /* shader.cpp */,
+				4BAB8A71228AF78B00A8D406 /* shader.hpp */,
+				4BAB8A72228AF78B00A8D406 /* shader.fs */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
 		D7042F03227EBC9F002490C4 /* LearnOpenGL-03-Shader */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,21 +359,11 @@
 		D70AD0BA228AAAF60005854D /* LearnOpenGL-06-CoordinateSystems */ = {
 			isa = PBXGroup;
 			children = (
-				D70AD0C4228AB4BB0005854D /* shader */,
+				4BAB8A6E228AF78B00A8D406 /* shader */,
 				D70AD0BB228AAAF60005854D /* main.cpp */,
+				4BAB8A74228AFF9F00A8D406 /* 06-README.md */,
 			);
 			path = "LearnOpenGL-06-CoordinateSystems";
-			sourceTree = "<group>";
-		};
-		D70AD0C4228AB4BB0005854D /* shader */ = {
-			isa = PBXGroup;
-			children = (
-				D70AD0C5228AB4BB0005854D /* shader.vs */,
-				D70AD0C7228AB4BB0005854D /* shader.hpp */,
-				D70AD0C6228AB4BB0005854D /* shader.cpp */,
-				D70AD0C8228AB4BB0005854D /* shader.fs */,
-			);
-			path = shader;
 			sourceTree = "<group>";
 		};
 		D7A33C332276E64200B58EEF /* libs */ = {
@@ -585,7 +587,7 @@
 			files = (
 				D70AD0BC228AAAF60005854D /* main.cpp in Sources */,
 				D70AD0C0228AAB1F0005854D /* stb_imageo.cpp in Sources */,
-				D70AD0C9228AB4BB0005854D /* shader.cpp in Sources */,
+				4BAB8A73228AF78B00A8D406 /* shader.cpp in Sources */,
 				D70AD0C1228AAB240005854D /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -900,7 +902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
@@ -919,7 +921,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,

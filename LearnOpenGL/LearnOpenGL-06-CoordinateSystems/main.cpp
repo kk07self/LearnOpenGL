@@ -65,31 +65,44 @@ int main(int argc, const char * argv[]) {
         return -1;
     }
     
+    // 开启深度测试
+    // -----------------------------
+    glEnable(GL_DEPTH_TEST);
+    
     // 使用我们自定义的着色器类
-    Shader ourShader("shader/Shader.vs","shader/Shader.fs");
+    Shader ourShader("shader/shader.vs","shader/shader.fs");
     
     
     unsigned int VAO, VBO, EBO; // 顶点数组对象，顶点缓冲对象，索引缓冲对象
     // 绘制矩形
     bindRectangle(&VAO, &VBO, &EBO);
     
+    // 定义了10个立方体
+    // world space positions of our cubes
+    glm::vec3 cubePositions[] = {
+        glm::vec3( 0.0f,  0.0f,  0.0f),
+        glm::vec3( 2.0f,  5.0f, -15.0f),
+        glm::vec3(-1.5f, -2.2f, -2.5f),
+        glm::vec3(-3.8f, -2.0f, -12.3f),
+        glm::vec3( 2.4f, -0.4f, -3.5f),
+        glm::vec3(-1.7f,  3.0f, -7.5f),
+        glm::vec3( 1.3f, -2.0f, -2.5f),
+        glm::vec3( 1.5f,  2.0f, -2.5f),
+        glm::vec3( 1.5f,  0.2f, -1.5f),
+        glm::vec3(-1.3f,  1.0f, -1.5f)
+    };
+    
     
     // 告诉opengl如何读取数据
-    // 因为此次点的位置和颜色的位置在一个数组里，颜色紧随位置后面，因此步长为6
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void *)0);
+    // 因为此次点的位置和颜色的位置在一个数组里，颜色紧随位置后面，因此步长为5
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5*sizeof(float), (void *)0);
     // 以顶点位置0作为参数启用顶点属性
     glEnableVertexAttribArray(0);
     
-    //
-    // 颜色属性 从1开始, 偏移量是3
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void *)(3 * sizeof(float)));
-    // 以顶点位置1作为参数启用顶点属性 --- 颜色
+    // 文理设置 从1开始, 偏移量是3
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5*sizeof(float), (void *)(3 * sizeof(float)));
+    // 以顶点位置1作为参数启用顶点属性 ---
     glEnableVertexAttribArray(1);
-    
-    // 文理设置 从2开始, 偏移量是6
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8*sizeof(float), (void *)(6 * sizeof(float)));
-    // 以顶点位置1作为参数启用顶点属性 --- 颜色
-    glEnableVertexAttribArray(2);
     
     
     // 创建纹理-------------------------------------
@@ -119,7 +132,7 @@ int main(int argc, const char * argv[]) {
         
         // 清屏
         glClearColor(46/255.0f, 47/255.0f, 67/255.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         
         // 绘制纹理
         glActiveTexture(GL_TEXTURE0);
@@ -131,26 +144,37 @@ int main(int argc, const char * argv[]) {
         ourShader.use();
         
         // create transformations
-        glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
         glm::mat4 view          = glm::mat4(1.0f);
         glm::mat4 projection    = glm::mat4(1.0f);
-        model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+        // 观察矩阵
         view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        // 透视矩阵
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        // retrieve the matrix uniform locations
-        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
         unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
-        // pass them to the shaders (3 different ways)
-        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
-        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
         ourShader.setMat4("projection", projection);
         
         // 绘制四角形
         // 使用着色器程序进行渲染
         glBindVertexArray(VAO);
+        for (unsigned int i = 0; i < 10; i++)
+        {
+            // calculate the model matrix for each object and pass it to shader before drawing
+            glm::mat4 model = glm::mat4(1.0f);
+            // 位移
+            model = glm::translate(model, cubePositions[i]);
+            float angle = 20.0f * i;
+            // 旋转角度
+            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            ourShader.setMat4("model", model);
+            
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+        }
         
-        glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, 0);
+//        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+        // 绘制顶点
+//        glDrawArrays(GL_TRIANGLES, 0, 36);
         
         // 会交换颜色缓冲
         glfwSwapBuffers(window);
@@ -236,12 +260,47 @@ void bindRectangle(unsigned int *VAO, unsigned int *VBO, unsigned int *EBO) {
     // 顶点数据数组，包含纹理数据
     // 纹理是2维数据，范围是(0,0)左下-(1,1)右上
     float vertices[] = {
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
         
-        // points           // colors           // texture coords
-        0.5f,  0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   1.0f, 1.0f,// top right
-        0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   1.0f, 0.0f,// bottom right
-        -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 0.0f,   0.0f, 0.0f, // bottom left
-        -0.5f,  0.5f, 0.0f, 1.0f, 1.0f, 0.0f,   0.0f, 1.0f   // top left
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
     // 索引数据
     unsigned int indices[] = {  // note that we start from 0!
