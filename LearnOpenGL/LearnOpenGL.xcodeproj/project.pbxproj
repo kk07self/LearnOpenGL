@@ -23,6 +23,12 @@
 		D70AD095228999190005854D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D70AD096228999510005854D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D70AD097228999700005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
+		D70AD0A3228A93380005854D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD0A2228A93380005854D /* main.cpp */; };
+		D70AD0A7228A93670005854D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
+		D70AD0A8228A93760005854D /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
+		D70AD0B2228A9CCC0005854D /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD0AC228A9CCC0005854D /* shader.cpp */; };
+		D70AD0B3228A9D180005854D /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D70AD06E228923370005854D /* glad.c */; };
+		D70AD0B4228A9D390005854D /* stb_imageo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D70AD092228993D00005854D /* stb_imageo.cpp */; };
 		D7A33C2D2276AEE000B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
 		D7A33C2E2276CE4B00B58EEF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7A33C2F2276CE6900B58EEF /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -65,6 +71,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		D70AD09E228A93380005854D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +108,15 @@
 		D70AD092228993D00005854D /* stb_imageo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_imageo.cpp; sourceTree = "<group>"; };
 		D70AD093228993D00005854D /* stb_imageo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stb_imageo.hpp; sourceTree = "<group>"; };
 		D70AD0982289A0110005854D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
+		D70AD0A0228A93380005854D /* LearnOpenGL-05-Transform */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-05-Transform"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D70AD0A2228A93380005854D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D70AD0A9228A94510005854D /* 05-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "05-README.md"; sourceTree = "<group>"; };
+		D70AD0AB228A9CCC0005854D /* shader.vs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.vs; sourceTree = "<group>"; };
+		D70AD0AC228A9CCC0005854D /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		D70AD0AD228A9CCC0005854D /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		D70AD0AE228A9CCC0005854D /* shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
+		D70AD0B0228A9CCC0005854D /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+		D70AD0B1228A9CCC0005854D /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/Cellar/glfw/3.3/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		D7A33C302276E31E00B58EEF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D7A33C312276E54E00B58EEF /* 01-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "01-README.md"; sourceTree = "<group>"; };
@@ -136,6 +160,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D70AD09D228A93380005854D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D70AD0A7228A93670005854D /* OpenGL.framework in Frameworks */,
+				D70AD0A8228A93760005854D /* libglfw.3.3.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -143,11 +176,13 @@
 			isa = PBXGroup;
 			children = (
 				D7A33C302276E31E00B58EEF /* README.md */,
+				D70AD09B228A56D80005854D /* stb_image */,
 				D7A33C332276E64200B58EEF /* libs */,
 				4B50D9F22275F7EA00B826D7 /* LearnOpenGL-01-Window */,
 				4B50D9E72275F6E100B826D7 /* LearnOpenGL-02-Triangle */,
 				D7042F03227EBC9F002490C4 /* LearnOpenGL-03-Shader */,
 				D70AD08222893FC10005854D /* LearnOpenGL-04-Texture */,
+				D70AD0A1228A93380005854D /* LearnOpenGL-05-Transform */,
 				4B50D9D22275DC2500B826D7 /* Products */,
 				4B50D9DB2275DD0E00B826D7 /* Frameworks */,
 			);
@@ -160,6 +195,7 @@
 				4B50D9F12275F7EA00B826D7 /* LearnOpenGL-01-窗口 */,
 				D7042F02227EBC9F002490C4 /* LearnOpenGL-03-Shader */,
 				D70AD08122893FC00005854D /* LearnOpenGL-04-Texture */,
+				D70AD0A0228A93380005854D /* LearnOpenGL-05-Transform */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,7 +243,6 @@
 		D70AD08222893FC10005854D /* LearnOpenGL-04-Texture */ = {
 			isa = PBXGroup;
 			children = (
-				D70AD09B228A56D80005854D /* stb_image */,
 				D70AD09A228A56C70005854D /* shader */,
 				D70AD099228A56B20005854D /* resources */,
 				D70AD089228941F20005854D /* main.cpp */,
@@ -244,6 +279,37 @@
 				D70AD092228993D00005854D /* stb_imageo.cpp */,
 			);
 			path = stb_image;
+			sourceTree = "<group>";
+		};
+		D70AD0A1228A93380005854D /* LearnOpenGL-05-Transform */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD0AF228A9CCC0005854D /* resources */,
+				D70AD0AA228A9CCC0005854D /* shader */,
+				D70AD0A2228A93380005854D /* main.cpp */,
+				D70AD0A9228A94510005854D /* 05-README.md */,
+			);
+			path = "LearnOpenGL-05-Transform";
+			sourceTree = "<group>";
+		};
+		D70AD0AA228A9CCC0005854D /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD0AD228A9CCC0005854D /* shader.hpp */,
+				D70AD0AC228A9CCC0005854D /* shader.cpp */,
+				D70AD0AE228A9CCC0005854D /* shader.fs */,
+				D70AD0AB228A9CCC0005854D /* shader.vs */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+		D70AD0AF228A9CCC0005854D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD0B0228A9CCC0005854D /* container.jpg */,
+				D70AD0B1228A9CCC0005854D /* awesomeface.png */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 		D7A33C332276E64200B58EEF /* libs */ = {
@@ -325,6 +391,23 @@
 			productReference = D70AD08122893FC00005854D /* LearnOpenGL-04-Texture */;
 			productType = "com.apple.product-type.tool";
 		};
+		D70AD09F228A93380005854D /* LearnOpenGL-05-Transform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D70AD0A4228A93380005854D /* Build configuration list for PBXNativeTarget "LearnOpenGL-05-Transform" */;
+			buildPhases = (
+				D70AD09C228A93380005854D /* Sources */,
+				D70AD09D228A93380005854D /* Frameworks */,
+				D70AD09E228A93380005854D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LearnOpenGL-05-Transform";
+			productName = "LearnOpenGL-05-Transform";
+			productReference = D70AD0A0228A93380005854D /* LearnOpenGL-05-Transform */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -346,6 +429,9 @@
 					D70AD08022893FC00005854D = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
+					D70AD09F228A93380005854D = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 4B50D9CC2275DC2500B826D7 /* Build configuration list for PBXProject "LearnOpenGL" */;
@@ -364,6 +450,7 @@
 				4B50D9E52275F6E100B826D7 /* LearnOpenGL-02-三角形 */,
 				D7042F01227EBC9F002490C4 /* LearnOpenGL-03-Shader */,
 				D70AD08022893FC00005854D /* LearnOpenGL-04-Texture */,
+				D70AD09F228A93380005854D /* LearnOpenGL-05-Transform */,
 			);
 		};
 /* End PBXProject section */
@@ -405,6 +492,17 @@
 				D70AD094228993D00005854D /* stb_imageo.cpp in Sources */,
 				D70AD08A228941F20005854D /* main.cpp in Sources */,
 				D70AD097228999700005854D /* glad.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D70AD09C228A93380005854D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D70AD0B2228A9CCC0005854D /* shader.cpp in Sources */,
+				D70AD0B4228A9D390005854D /* stb_imageo.cpp in Sources */,
+				D70AD0A3228A93380005854D /* main.cpp in Sources */,
+				D70AD0B3228A9D180005854D /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +751,7 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-documentation";
 			};
 			name = Debug;
 		};
@@ -671,6 +770,45 @@
 					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-documentation";
+			};
+			name = Release;
+		};
+		D70AD0A5228A93380005854D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M6DX88HX28;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"$(glfw_header)",
+					/usr/local/Cellar/glm/0.9.9.5/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.3/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-documentation";
+			};
+			name = Debug;
+		};
+		D70AD0A6228A93380005854D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M6DX88HX28;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					"$(glfw_header)",
+					/usr/local/Cellar/glm/0.9.9.5/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/glfw/3.3/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-documentation";
 			};
 			name = Release;
 		};
@@ -718,6 +856,15 @@
 			buildConfigurations = (
 				D70AD08622893FC10005854D /* Debug */,
 				D70AD08722893FC10005854D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D70AD0A4228A93380005854D /* Build configuration list for PBXNativeTarget "LearnOpenGL-05-Transform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D70AD0A5228A93380005854D /* Debug */,
+				D70AD0A6228A93380005854D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

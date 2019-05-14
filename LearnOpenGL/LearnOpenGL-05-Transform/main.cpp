@@ -1,18 +1,22 @@
 //
 //  main.cpp
-//  LearnOpenGL-04-Texture
+//  LearnOpenGL-05-Transform
 //
-//  Created by tutu on 2019/5/13.
+//  Created by tutu on 2019/5/14.
 //  Copyright © 2019 KK. All rights reserved.
 //
 
-
-#include "../stb_image/stb_image.h"
-#include <cmath>
+#include <iostream>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+
+// glm
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "shader/shader.hpp"
-#include <iostream>
+#include "../stb_image/stb_image.h"
 
 typedef enum ImageType : int {
     ImageType_RGB,
@@ -88,7 +92,7 @@ int main(int argc, const char * argv[]) {
     // 以顶点位置1作为参数启用顶点属性 --- 颜色
     glEnableVertexAttribArray(2);
     
-
+    
     // 创建纹理-------------------------------------
     // 创建文理：1> 生成纹理 2> 绑定纹理 3> 设置纹理属性
     unsigned int texture1 = creatTexture("resources/container.jpg", ImageType_RGB);
@@ -98,13 +102,13 @@ int main(int argc, const char * argv[]) {
     // 设置采样器
     // 在设置采样器之前先激活程序
     ourShader.use();
-
+    
     // 设置片段着色器中两个纹理采样器, 第一个是0绑定这里的第一个纹理，第二个是1绑定这里的第二个纹理
     glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0);
     glUniform1i(glGetUniformLocation(ourShader.ID, "texture2"), 1);
     // 或者使用这个设置
-//    ourShader.setInt("texture1", 0);
-//    ourShader.setInt("texture2", 1);
+    //    ourShader.setInt("texture1", 0);
+    //    ourShader.setInt("texture2", 1);
     
     // render loop
     while (!glfwWindowShouldClose(window)) {
@@ -124,8 +128,22 @@ int main(int argc, const char * argv[]) {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
         
+        // mark: ------------ 新加的transformations
+        // 初始化一个4x4的单位向量
+        glm::mat4 transform = glm::mat4(1.0f);
+        // 位移
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        // 缩放
+        transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 0.5f));
+        // 旋转角度
+        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0, 0.0f, 1.0f));
+        
         // 使用我们的着色器进行渲染
         ourShader.use();
+        // 拿到着色器中的transform --- 变换矩阵，将值赋值过去
+        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+        
         // 绘制四角形
         // 使用着色器程序进行渲染
         glBindVertexArray(VAO);
@@ -151,7 +169,7 @@ int main(int argc, const char * argv[]) {
 
 /**
  创建纹理
-
+ 
  @param imagePath 图片资源路径
  @param imageType 图片资源格式：RGB或RGBA，目前支持这两个
  @return 创建后的纹理
