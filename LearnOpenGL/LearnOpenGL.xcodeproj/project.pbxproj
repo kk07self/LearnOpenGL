@@ -207,19 +207,43 @@
 		D70AD08222893FC10005854D /* LearnOpenGL-04-Texture */ = {
 			isa = PBXGroup;
 			children = (
-				D70AD0982289A0110005854D /* awesomeface.png */,
-				D70AD08C228990360005854D /* container.jpg */,
-				D70AD08B2289508A0005854D /* stb_image.h */,
-				D70AD093228993D00005854D /* stb_imageo.hpp */,
-				D70AD092228993D00005854D /* stb_imageo.cpp */,
+				D70AD09B228A56D80005854D /* stb_image */,
+				D70AD09A228A56C70005854D /* shader */,
+				D70AD099228A56B20005854D /* resources */,
 				D70AD089228941F20005854D /* main.cpp */,
-				D70AD08E228991EB0005854D /* shader.hpp */,
-				D70AD08D228991EB0005854D /* shader.cpp */,
-				D70AD090228992BF0005854D /* shader.vs */,
-				D70AD091228992CC0005854D /* shader.fs */,
 				D70AD088228941D10005854D /* 04-README.md */,
 			);
 			path = "LearnOpenGL-04-Texture";
+			sourceTree = "<group>";
+		};
+		D70AD099228A56B20005854D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD0982289A0110005854D /* awesomeface.png */,
+				D70AD08C228990360005854D /* container.jpg */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		D70AD09A228A56C70005854D /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD090228992BF0005854D /* shader.vs */,
+				D70AD091228992CC0005854D /* shader.fs */,
+				D70AD08E228991EB0005854D /* shader.hpp */,
+				D70AD08D228991EB0005854D /* shader.cpp */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+		D70AD09B228A56D80005854D /* stb_image */ = {
+			isa = PBXGroup;
+			children = (
+				D70AD08B2289508A0005854D /* stb_image.h */,
+				D70AD093228993D00005854D /* stb_imageo.hpp */,
+				D70AD092228993D00005854D /* stb_imageo.cpp */,
+			);
+			path = stb_image;
 			sourceTree = "<group>";
 		};
 		D7A33C332276E64200B58EEF /* libs */ = {
