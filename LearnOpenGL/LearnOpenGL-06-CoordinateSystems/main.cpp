@@ -1,22 +1,21 @@
 //
 //  main.cpp
-//  LearnOpenGL-05-Transform
+//  LearnOpenGL-06-CoordinateSystems
 //
 //  Created by tutu on 2019/5/14.
 //  Copyright © 2019 KK. All rights reserved.
 //
 
-#include <iostream>
+#include "../stb_image/stb_image.h"
+#include <cmath>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include "shader/shader.hpp"
+#include <iostream>
 
-// glm
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
-#include "shader/shader.hpp"
-#include "../stb_image/stb_image.h"
 
 typedef enum ImageType : int {
     ImageType_RGB,
@@ -128,21 +127,24 @@ int main(int argc, const char * argv[]) {
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, texture2);
         
-        // mark: ------------ 新加的transformations
-        // 初始化一个4x4的单位向量
-        glm::mat4 transform = glm::mat4(1.0f);
-        // 位移
-        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-        // 缩放
-        transform = glm::scale(transform, glm::vec3(0.5f, 0.5f, 0.5f));
-        // 旋转角度
-        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0, 0.0f, 1.0f));
-        
         // 使用我们的着色器进行渲染
         ourShader.use();
-        // 拿到着色器中的transform --- 变换矩阵，将值赋值过去
-        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+        
+        // create transformations
+        glm::mat4 model         = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        glm::mat4 view          = glm::mat4(1.0f);
+        glm::mat4 projection    = glm::mat4(1.0f);
+        model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        // retrieve the matrix uniform locations
+        unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
+        unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
+        // pass them to the shaders (3 different ways)
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+        glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
+        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+        ourShader.setMat4("projection", projection);
         
         // 绘制四角形
         // 使用着色器程序进行渲染
