@@ -1,4 +1,8 @@
 # LearnOpenGL-03-Shader
+<br/>
+
+>  此示例学习资源来自于[LearnOpenGL](https://learnopengl-cn.github.io/)，感谢！
+<br/>
 
 ## 第三个示例：着色器
 本示例和之前的两个示例基本一致，区别的地方主要在着色器（源码）上，如果看过前面两个示例的话，可以着重看下着色器部分

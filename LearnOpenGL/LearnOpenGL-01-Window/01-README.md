@@ -1,5 +1,7 @@
 # LearnOpenGL-01-Window
 
+>  此示例学习资源来自于[LearnOpenGL](https://learnopengl-cn.github.io/)，感谢！
+
 ## 第一个示例：窗口
 
 显示一个窗口的步骤：

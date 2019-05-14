@@ -1,6 +1,8 @@
 # LearnOpenGL
 OpenGL ES 学习
 
+>  整个学习资源来自于[LearnOpenGL](https://learnopengl-cn.github.io/)，感谢！
+
 ## 示例列表
 
 - [第1个学习示例：窗口](LearnOpenGL/LearnOpenGL-01-Window/01-README.md)

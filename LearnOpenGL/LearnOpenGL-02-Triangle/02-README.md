@@ -1,4 +1,8 @@
 # LearnOpenGL-02-Triangle
+<br/>
+
+>  此示例学习资源来自于[LearnOpenGL](https://learnopengl-cn.github.io/)，感谢！
+<br/>
 
 ## 第二个示例：三角形
 本示例和第一个窗口示例，整体的逻辑是一样的，区别在于教之前在屏幕上对渲染了三角形（也拓展了矩形等）
