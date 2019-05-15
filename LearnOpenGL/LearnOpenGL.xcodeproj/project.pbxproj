@@ -902,7 +902,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = M6DX88HX28;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
@@ -921,7 +921,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = M6DX88HX28;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,

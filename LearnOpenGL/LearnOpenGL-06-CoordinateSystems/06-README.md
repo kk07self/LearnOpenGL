@@ -8,6 +8,7 @@
 
 本篇文章将分三个小示例：纹理3D预览，3D盒子，多个3D盒子。
 <br/>
+<br/>
 
 ## 小示例1：纹理3D预览
 这一部分也很简单，整体来说和示例5中的转换示例的逻辑一致。
@@ -21,7 +22,6 @@
 - 然后是创建各个空间矩阵（创建需要的）
 - 最后是将创建的空间矩阵复制到着色器中
 
-<br/>
 
 针对对应的逻辑上代码：
 ### 1.1 顶点着色器调整
@@ -65,6 +65,8 @@ glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
 ourShader.setMat4("projection", projection);
 ```
 通过以上的设置，运行项目，即可看到效果。
+<br/>
+<br/>
 
 ## 小示例2：旋转的3D盒子
 这个示例相比较于上一个示例只需要简单的微调即可。
@@ -158,5 +160,75 @@ model = glm::rotate(model, (float)glfwGetTime() * glm::radians(50.0f), glm::vec3
 
 完成以上所有调整后，运行项目，即可看到旋转的立方体盒子
 <br/>
+<br/>
 
-## 多个3D盒子
+## 小示例3：多个3D盒子
+这个示例相对于小示例2变换的地方有两个地方，一个是实现多个3D盒子，另一个是将多个盒子错开（位移矩阵）。
+### 3.1 实现多个3D盒子
+通过之前的内容我们都知道，绘制出一个3D的盒子执行的代码是：
+```
+glDrawArrays(GL_TRIANGLES, 0, 36);
+```
+这时，我们需要绘制多个，比如10个，那我们在这里加个for循环10次就可以了：
+```
+for (unsigned int i = 0; i < 10; i++)
+{
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+}
+```
+以上，我们就实现了10个3D盒子，但是目前是在一个位置上面的，也就是重叠的，下一步我们将这些盒子错开。
+<br/>
+
+### 3.2 各个盒子错开
+之前的`示例5-变换`我们已经知道，通过`位移矩阵`可以移动盒子的位置，这样就可以达到错开的效果了。
+因此，我们针对10个盒子，先构造一个包含10个位移值得数组：
+```
+// 定义了10个立方体 的位移值
+// world space positions of our cubes
+glm::vec3 cubePositions[] = {
+glm::vec3( 0.0f,  0.0f,  0.0f),
+glm::vec3( 2.0f,  5.0f, -15.0f),
+glm::vec3(-1.5f, -2.2f, -2.5f),
+glm::vec3(-3.8f, -2.0f, -12.3f),
+glm::vec3( 2.4f, -0.4f, -3.5f),
+glm::vec3(-1.7f,  3.0f, -7.5f),
+glm::vec3( 1.3f, -2.0f, -2.5f),
+glm::vec3( 1.5f,  2.0f, -2.5f),
+glm::vec3( 1.5f,  0.2f, -1.5f),
+glm::vec3(-1.3f,  1.0f, -1.5f)
+};
+```
+在渲染10个盒子的循环体内，我们设置每一个盒子的`偏移矩阵`，这里的`偏移矩阵`我们是放在`模型矩阵`中的，本示例涉及了3个矩阵：`模型矩阵`、`观察矩阵`、`投影矩阵`，`模型矩阵`是最基础的，因此放在`模型矩阵`中，然后把`模型矩阵`放到循环体中设置。
+循环体的代码就是：
+```
+for (unsigned int i = 0; i < 10; i++)
+{
+// calculate the model matrix for each object and pass it to shader before drawing
+glm::mat4 model = glm::mat4(1.0f);
+// 位移
+model = glm::translate(model, cubePositions[i]);
+ourShader.setMat4("model", model);
+
+glDrawArrays(GL_TRIANGLES, 0, 36);
+}
+```
+运行项目，我们就能看到错开的10个盒子了。
+
+为了让每个盒子看起来旋转的角度不同，并保持转动状态，我们可以再`模型矩阵`上再组合一个`旋转矩阵`，这样循环体的代码就是：
+```
+for (unsigned int i = 0; i < 10; i++)
+{
+    // calculate the model matrix for each object and pass it to shader before drawing
+    glm::mat4 model = glm::mat4(1.0f);
+    // 位移
+    model = glm::translate(model, cubePositions[i]);
+    float angle = 10.0f * (i+1);
+    // 旋转角度
+    model = glm::rotate(model, (float)glfwGetTime()*glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+    ourShader.setMat4("model", model);
+
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+}
+```
+
+完成，运行项目，即可看到效果。
