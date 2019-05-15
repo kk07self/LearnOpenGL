@@ -12,6 +12,7 @@
 		4B50D9FF2275F98500B826D7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4B50D9FE2275F98500B826D7 /* main.cpp */; };
 		4BAB8A6D2288694B00A8D406 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8A6B2288694B00A8D406 /* shader.cpp */; };
 		4BAB8A73228AF78B00A8D406 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8A70228AF78B00A8D406 /* shader.cpp */; };
+		4BAB8A86228C4BAB00A8D406 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8A85228C4BAB00A8D406 /* Camera.cpp */; };
 		D7042F05227EBC9F002490C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D7042F04227EBC9F002490C4 /* main.cpp */; };
 		D7042F09227EBD1F002490C4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B50D9DC2275DD0E00B826D7 /* OpenGL.framework */; };
 		D7042F0A227EBD36002490C4 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A33C2C2276AEDF00B58EEF /* libglfw.3.3.dylib */; };
@@ -142,6 +143,8 @@
 		4BAB8A71228AF78B00A8D406 /* shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
 		4BAB8A72228AF78B00A8D406 /* shader.fs */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.fs; sourceTree = "<group>"; };
 		4BAB8A74228AFF9F00A8D406 /* 06-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "06-README.md"; sourceTree = "<group>"; };
+		4BAB8A84228C4BAB00A8D406 /* Camera.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		4BAB8A85228C4BAB00A8D406 /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		D7042F02227EBC9F002490C4 /* LearnOpenGL-03-Shader */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "LearnOpenGL-03-Shader"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7042F04227EBC9F002490C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D70AD06C22891F840005854D /* Shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = Shader.vs; sourceTree = "<group>"; };
@@ -470,6 +473,8 @@
 		D7C1EB52228C1BBE000BD697 /* LearnOpenGL-08-Colors */ = {
 			isa = PBXGroup;
 			children = (
+				4BAB8A85228C4BAB00A8D406 /* Camera.cpp */,
+				4BAB8A84228C4BAB00A8D406 /* Camera.hpp */,
 				D7C1EB53228C1BBE000BD697 /* shader */,
 				D7C1EB58228C1BBE000BD697 /* main.cpp */,
 			);
@@ -767,6 +772,7 @@
 			files = (
 				D7C1EB5A228C1BBE000BD697 /* main.cpp in Sources */,
 				D7C1EB5D228C1F76000BD697 /* stb_imageo.cpp in Sources */,
+				4BAB8A86228C4BAB00A8D406 /* Camera.cpp in Sources */,
 				D7C1EB59228C1BBE000BD697 /* shader.cpp in Sources */,
 				D7C1EB5E228C1F79000BD697 /* glad.c in Sources */,
 			);
@@ -1044,7 +1050,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"$(glfw_header)",
@@ -1063,7 +1069,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/include,
 					"$(glfw_header)",
@@ -1082,7 +1088,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
@@ -1101,7 +1107,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
@@ -1158,7 +1164,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
@@ -1177,7 +1183,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M6DX88HX28;
+				DEVELOPMENT_TEAM = HA5G797698;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
