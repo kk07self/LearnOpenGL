@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>LearnOpenGL_08-Colors.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -68,6 +73,11 @@
 			<true/>
 		</dict>
 		<key>D7C1EB2F228BB44D000BD697</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D7C1EB48228C1AEE000BD697</key>
 		<dict>
 			<key>primary</key>
 			<true/>
