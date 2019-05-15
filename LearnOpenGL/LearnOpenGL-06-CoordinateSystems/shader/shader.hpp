@@ -84,15 +84,15 @@ public:
         glDeleteShader(vertex);
         glDeleteShader(fragment);
     }
-    
-    // activate the shader
-    // ------------------------------------------------------------------------
+
+    // 使用/激活程序
     void use()
     {
         glUseProgram(ID);
     }
     // utility uniform functions
     // ------------------------------------------------------------------------
+
     void setBool(const std::string &name, bool value) const
     {
         glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);

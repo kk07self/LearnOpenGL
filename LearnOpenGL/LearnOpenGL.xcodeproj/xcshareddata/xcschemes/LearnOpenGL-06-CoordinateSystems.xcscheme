@@ -47,7 +47,11 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
+<<<<<<< HEAD
       customWorkingDirectory = "/Users/kk/Desktop/LearnOpenGL/LearnOpenGL/LearnOpenGL-06-CoordinateSystems"
+=======
+      customWorkingDirectory = "/Users/tutu/Desktop/LearnOpenGL/LearnOpenGL/LearnOpenGL-06-CoordinateSystems"
+>>>>>>> 也不知什么鬼
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"

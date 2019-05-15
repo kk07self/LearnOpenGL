@@ -24,7 +24,7 @@ typedef enum ImageType : int {
 
 unsigned int creatTexture(const char* imagePath, const ImageType imageType);
 
-void bindRectangle(unsigned int *VAO, unsigned int *VBO, unsigned int *EBO);
+void bindRectangle(unsigned int *VAO, unsigned int *VBO);
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
@@ -73,11 +73,11 @@ int main(int argc, const char * argv[]) {
     Shader ourShader("shader/shader.vs","shader/shader.fs");
     
     
-    unsigned int VAO, VBO, EBO; // 顶点数组对象，顶点缓冲对象，索引缓冲对象
+    unsigned int VAO, VBO; // 顶点数组对象，顶点缓冲对象，索引缓冲对象
     // 绘制矩形
-    bindRectangle(&VAO, &VBO, &EBO);
+    bindRectangle(&VAO, &VBO);
     
-    // 定义了10个立方体
+    // 定义了10个立方体 的位移值
     // world space positions of our cubes
     glm::vec3 cubePositions[] = {
         glm::vec3( 0.0f,  0.0f,  0.0f),
@@ -164,9 +164,9 @@ int main(int argc, const char * argv[]) {
             glm::mat4 model = glm::mat4(1.0f);
             // 位移
             model = glm::translate(model, cubePositions[i]);
-            float angle = 20.0f * i;
+            float angle = 10.0f * (i+1);
             // 旋转角度
-            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+            model = glm::rotate(model, (float)glfwGetTime()*glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
             ourShader.setMat4("model", model);
             
             glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -186,7 +186,6 @@ int main(int argc, const char * argv[]) {
     // 删除顶点数据
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
-    glDeleteBuffers(1, &EBO);
     
     glfwTerminate();
     return 0;
@@ -255,7 +254,7 @@ unsigned int creatTexture(const char* imagePath, const ImageType imageType) {
  @param VBO 顶点缓冲对象
  @param EBO 索引缓冲对象
  */
-void bindRectangle(unsigned int *VAO, unsigned int *VBO, unsigned int *EBO) {
+void bindRectangle(unsigned int *VAO, unsigned int *VBO) {
     
     // 顶点数据数组，包含纹理数据
     // 纹理是2维数据，范围是(0,0)左下-(1,1)右上
@@ -302,15 +301,10 @@ void bindRectangle(unsigned int *VAO, unsigned int *VBO, unsigned int *EBO) {
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
-    // 索引数据
-    unsigned int indices[] = {  // note that we start from 0!
-        0, 1, 3,  // first Triangle
-        1, 2, 3   // second Triangle
-    };
+
     
     glGenVertexArrays(1, VAO);
     glGenBuffers(1, VBO);
-    glGenBuffers(1, EBO);
     
     // 绑定顶点数组对象、绑定和设置顶点缓冲对象、再设置顶点解析
     // 复制顶点数组到缓冲中供OpenGL使用
@@ -318,9 +312,6 @@ void bindRectangle(unsigned int *VAO, unsigned int *VBO, unsigned int *EBO) {
     
     glBindBuffer(GL_ARRAY_BUFFER, *VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 }
 
 
