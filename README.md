@@ -12,3 +12,5 @@ OpenGL ES 学习
 - [第5个学习示例：变换](LearnOpenGL/LearnOpenGL-05-Transform/05-README.md)
 - [第6个学习示例：坐标系统](LearnOpenGL/LearnOpenGL-06-CoordinateSystems/06-README.md)
 - [第7个学习示例：摄像机](LearnOpenGL/LearnOpenGL-07-Camera/07-README.md)
+- [第8个学习示例：摄像机](LearnOpenGL/LearnOpenGL-08-Colors/08-README.md)
+- [第9个学习示例：摄像机](LearnOpenGL/LearnOpenGL-09-BasicLighting/09-README.md)
