@@ -1,24 +1,38 @@
 // 片段着色器
 
 #version 330 core
+
+// 材质
+struct Material {
+    vec3 ambient;       // 环境光照分量影响
+    vec3 diffuse;       // 漫反射光照分量影响
+    vec3 specular;      // 镜面光照分量影响
+    float shininess;    // 影响镜面高光的散射/半径
+};
+
+
+// 光强度及光颜色
+struct Light {
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+};
+
+
 out vec4 FragColor;
 
 in vec3 Normal;             // 法向量
 in vec3 FragPos;            // 片段位置向量
-
 uniform vec3 lightPos;      // 光源位置向量
-
 uniform vec3 viewPos;       // 观察位置向量
 
-uniform vec3 objectColor;   // 物体颜色
-uniform vec3 lightColor;    // 光源颜色
+uniform Material material;
+uniform Light light;
 
 void main() {
     
     // 环境光照的影响分量
-    // 先给个很小的常量环境因子
-    float ambientStrength = 0.1;
-    vec3 ambient = ambientStrength * lightColor;
+    vec3 ambient = light.ambient * material.ambient;
     
     // 满反射光照的影响分量
     // 标准话的法向量
@@ -28,11 +42,9 @@ void main() {
     // 影响值：法向量与光源方向向量的点乘的非负数值
     float diff = max(dot(norm, lightDir), 0.0);
     // 最终的漫反射影响分量
-    vec3 diffuse = diff * lightColor;
+    vec3 diffuse =  light.diffuse * (diff * material.diffuse);
     
     // 镜面光照的影响分量
-    // 给个高光强度，我们选中等亮度的
-    float specularStrength = 0.5;
     // 视线方向向量: 观察位置向量与片段位置向量的差值
     vec3 viewDir = normalize(viewPos - FragPos);
     // 反射向量：沿着法线轴的反射向量
@@ -41,11 +53,11 @@ void main() {
     // 要求第二个向量是法向量，这里提供norm法向量
     vec3 reflectDir = reflect(-lightDir, norm);
     // 计算影响值：法向量与光源方向向量的点乘的非负数值, 在取32次幂。
-    // 32次幂是高光的反光度，一个物体的反光度越高，反射光的能力越强，散射得越少，高光点就会越小
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+    // 32次幂是高光的方光度，一个物体的反光度越高，反射光的能力越强，散射得越少，高光点就会越小
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
     // 计算镜面分量：高光强度*影响值*光源色
-    vec3 specular = specularStrength * spec * lightColor;
+    vec3 specular = light.specular * (spec * material.specular);
     
-    vec3 result = (ambient + diffuse + specular) * objectColor;
+    vec3 result = (ambient + diffuse + specular);
     FragColor = vec4(result, 1.0);
 }

@@ -5,5 +5,5 @@ out vec4 FragColor;
 
 void main() {
     // 光源为全白色
-    FragColor = vec4(1.0f);
+    FragColor = vec4(1.0);
 }

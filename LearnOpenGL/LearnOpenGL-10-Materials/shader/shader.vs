@@ -13,7 +13,6 @@ uniform mat4 projection;                // 投影矩阵
 
 void main()
 {
-    
     // 计算片段位置向量 --- 世界空间中
     FragPos = vec3(model * vec4(aPos, 1.0));
     // 法向量 --- 世界空间中

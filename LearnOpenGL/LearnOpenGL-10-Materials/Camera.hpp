@@ -26,7 +26,7 @@ typedef enum Camera_Movement {
 const float YAW         = -90.f;    // 偏航角
 const float PITCH       = 0.0f;     // 俯仰角
 const float SPEED       = 2.5f;     // 方向变换移动速率值
-const float SENSITIVITY = 0.1f;     // 鼠标移动速率值
+const float SENSITIVITY = 0.5f;     // 鼠标移动速率值
 const float ZOOM        = 45.0f;    // 鼠标滚轮移动缩放值
 
 class Camera {
@@ -49,7 +49,10 @@ public:
     float Zoom;
     
     // 初始化方法: 通过向量
-    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f), float yaw = YAW, float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM) {
+    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 0.0f),
+           glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
+           float yaw = YAW,
+           float pitch = PITCH) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM) {
         Position = position;
         WorldUp = up;
         Yaw = yaw;
