@@ -1,4 +1,4 @@
-# LearnOpenGL-09-BasicLighting
+# LearnOpenGL-10-Materials
 
 <br/>
 
