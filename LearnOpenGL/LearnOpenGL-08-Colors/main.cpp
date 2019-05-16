@@ -145,13 +145,24 @@ int main(int argc, const char * argv[]) {
         -0.5f,  0.5f, -0.5f,
     };
     
+    // 物体的
     unsigned int VAO, VBO; // 顶点数组对象，顶点缓冲对象，索引缓冲对象
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     glBindVertexArray(VAO);
+    // 告诉opengl如何读取数据
+    // 因为此次点的位置和颜色的位置在一个数组里，颜色紧随位置后面，因此步长为5
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void *)0);
+    // 以顶点位置0作为参数启用顶点属性
+    glEnableVertexAttribArray(0);
     
+    // 光源的
+    unsigned int lightVAO;
+    glGenVertexArrays(1, &lightVAO);
+    glBindVertexArray(lightVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
     // 告诉opengl如何读取数据
     // 因为此次点的位置和颜色的位置在一个数组里，颜色紧随位置后面，因此步长为5
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void *)0);
@@ -209,7 +220,7 @@ int main(int argc, const char * argv[]) {
         
         // 绘制四角形
         // 使用着色器程序进行渲染
-        glBindVertexArray(VAO);
+        glBindVertexArray(lightVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         
         // 会交换颜色缓冲

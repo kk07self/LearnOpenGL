@@ -194,6 +194,7 @@
 		D7C1EB58228C1BBE000BD697 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D7C1EB5B228C1D3B000BD697 /* lightShader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lightShader.fs; sourceTree = "<group>"; };
 		D7C1EB5C228C1DE3000BD697 /* lightShader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lightShader.vs; sourceTree = "<group>"; };
+		D7C1EB67228D0458000BD697 /* 08-README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "08-README.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +478,7 @@
 				4BAB8A84228C4BAB00A8D406 /* Camera.hpp */,
 				D7C1EB53228C1BBE000BD697 /* shader */,
 				D7C1EB58228C1BBE000BD697 /* main.cpp */,
+				D7C1EB67228D0458000BD697 /* 08-README.md */,
 			);
 			path = "LearnOpenGL-08-Colors";
 			sourceTree = "<group>";
@@ -1164,7 +1166,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = 9343N69MHG;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
@@ -1183,7 +1185,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = 9343N69MHG;
 				HEADER_SEARCH_PATHS = (
 					/usr/local/Cellar/glm/0.9.9.5/include,
 					/usr/local/include,
