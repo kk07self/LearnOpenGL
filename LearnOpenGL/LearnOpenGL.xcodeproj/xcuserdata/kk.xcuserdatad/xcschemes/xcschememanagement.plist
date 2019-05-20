@@ -7,7 +7,7 @@
 		<key>LearnOpenGL-01-窗口.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>12</integer>
 		</dict>
 		<key>LearnOpenGL-02-三角形.xcscheme_^#shared#^_</key>
 		<dict>
@@ -52,7 +52,17 @@
 		<key>LearnOpenGL-11-LightingMaps.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>LearnOpenGL-12-LightCasters.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>10</integer>
+		</dict>
+		<key>LearnOpenGL-13-MultipleLights.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
 		</dict>
 		<key>LearnOpenGL_08-Colors.xcscheme_^#shared#^_</key>
 		<dict>

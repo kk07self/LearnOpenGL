@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4BAB8A8A228D9DAC00A8D406"
-               BuildableName = "LearnOpenGL-11-LightingMaps"
-               BlueprintName = "LearnOpenGL-11-LightingMaps"
+               BlueprintIdentifier = "D7C1EBA3228E443A000BD697"
+               BuildableName = "LearnOpenGL-12-LightCasters"
+               BlueprintName = "LearnOpenGL-12-LightCasters"
                ReferencedContainer = "container:LearnOpenGL.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4BAB8A8A228D9DAC00A8D406"
-            BuildableName = "LearnOpenGL-11-LightingMaps"
-            BlueprintName = "LearnOpenGL-11-LightingMaps"
+            BlueprintIdentifier = "D7C1EBA3228E443A000BD697"
+            BuildableName = "LearnOpenGL-12-LightCasters"
+            BlueprintName = "LearnOpenGL-12-LightCasters"
             ReferencedContainer = "container:LearnOpenGL.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -47,7 +47,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "YES"
-      customWorkingDirectory = "/Users/tutu/Desktop/LearnOpenGL/LearnOpenGL/LearnOpenGL-11-LightingMaps"
+      customWorkingDirectory = "/Users/tutu/Desktop/LearnOpenGL/LearnOpenGL/LearnOpenGL-12-LightCasters"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -56,9 +56,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4BAB8A8A228D9DAC00A8D406"
-            BuildableName = "LearnOpenGL-11-LightingMaps"
-            BlueprintName = "LearnOpenGL-11-LightingMaps"
+            BlueprintIdentifier = "D7C1EBA3228E443A000BD697"
+            BuildableName = "LearnOpenGL-12-LightCasters"
+            BlueprintName = "LearnOpenGL-12-LightCasters"
             ReferencedContainer = "container:LearnOpenGL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,9 +75,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4BAB8A8A228D9DAC00A8D406"
-            BuildableName = "LearnOpenGL-11-LightingMaps"
-            BlueprintName = "LearnOpenGL-11-LightingMaps"
+            BlueprintIdentifier = "D7C1EBA3228E443A000BD697"
+            BuildableName = "LearnOpenGL-12-LightCasters"
+            BlueprintName = "LearnOpenGL-12-LightCasters"
             ReferencedContainer = "container:LearnOpenGL.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
