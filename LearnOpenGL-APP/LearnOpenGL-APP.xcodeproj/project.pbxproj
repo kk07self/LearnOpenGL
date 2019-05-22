@@ -73,6 +73,7 @@
 		4BAB8AAF2292E04500A8D406 /* LearnOpenGL-APP */ = {
 			isa = PBXGroup;
 			children = (
+				D7F3494D2294E8F900AEF51A /* 03-LongLegs */,
 				D7F349422293F77300AEF51A /* 02-GLSL */,
 				D7F349412293F75F00AEF51A /* 01-GLKit */,
 				4BAB8B072292F44600A8D406 /* sample.jpg */,
@@ -109,6 +110,13 @@
 				D7F349472293FED300AEF51A /* GLSLShader.m */,
 			);
 			path = "02-GLSL";
+			sourceTree = "<group>";
+		};
+		D7F3494D2294E8F900AEF51A /* 03-LongLegs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "03-LongLegs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
