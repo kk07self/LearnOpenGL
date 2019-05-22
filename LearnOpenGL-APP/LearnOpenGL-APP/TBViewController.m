@@ -22,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _demos = @[@{@"00-GLKit-加载纹理":@"GLKitViewController"},
-               @{@"01-GLSL-加载纹理" :@"GLSLViewController"}];
+               @{@"01-GLSL-加载纹理" :@"GLSLViewController"},
+               @{@"02-GLSL-长腿功能" :@"LongLegsViewController"}];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TBViewControllerCellID"];
 }
