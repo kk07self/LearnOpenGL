@@ -74,7 +74,7 @@ typedef struct {
     // 以顶点位置0作为参数启用顶点属性
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     
-    // 文理设置 从2开始, 偏移量是6
+    // 文理设置 从2开始, 偏移量是5
     glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, 5*sizeof(float), (void *)(3 * sizeof(float)));
     // 以顶点位置1作为参数启用顶点属性 --- 颜色
     glEnableVertexAttribArray(GLKVertexAttribTexCoord0);

@@ -8,21 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		4BAB8AB22292E04500A8D406 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8AB12292E04500A8D406 /* AppDelegate.m */; };
-		4BAB8AB52292E04500A8D406 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8AB42292E04500A8D406 /* ViewController.m */; };
+		4BAB8AB52292E04500A8D406 /* TBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8AB42292E04500A8D406 /* TBViewController.m */; };
 		4BAB8AB82292E04500A8D406 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8AB62292E04500A8D406 /* Main.storyboard */; };
 		4BAB8ABA2292E04900A8D406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8AB92292E04900A8D406 /* Assets.xcassets */; };
 		4BAB8ABD2292E04900A8D406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8ABB2292E04900A8D406 /* LaunchScreen.storyboard */; };
 		4BAB8AC02292E04900A8D406 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8ABF2292E04900A8D406 /* main.m */; };
 		4BAB8AC82292E56500A8D406 /* GLKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8AC72292E56500A8D406 /* GLKitViewController.m */; };
 		4BAB8B082292F44600A8D406 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B072292F44600A8D406 /* sample.jpg */; };
+		D7F349402293F73C00AEF51A /* GLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F3493F2293F73C00AEF51A /* GLSLViewController.m */; };
+		D7F349482293FED300AEF51A /* GLSLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F349472293FED300AEF51A /* GLSLShader.m */; };
+		D7F3494B2294064C00AEF51A /* shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7F349492294064C00AEF51A /* shader.fsh */; };
+		D7F3494C2294064C00AEF51A /* shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7F3494A2294064C00AEF51A /* shader.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4BAB8AAD2292E04500A8D406 /* LearnOpenGL-APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LearnOpenGL-APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAB8AB02292E04500A8D406 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4BAB8AB12292E04500A8D406 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4BAB8AB32292E04500A8D406 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4BAB8AB42292E04500A8D406 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4BAB8AB32292E04500A8D406 /* TBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBViewController.h; sourceTree = "<group>"; };
+		4BAB8AB42292E04500A8D406 /* TBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBViewController.m; sourceTree = "<group>"; };
 		4BAB8AB72292E04500A8D406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BAB8AB92292E04900A8D406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BAB8ABC2292E04900A8D406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -31,6 +35,12 @@
 		4BAB8AC62292E56500A8D406 /* GLKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLKitViewController.h; sourceTree = "<group>"; };
 		4BAB8AC72292E56500A8D406 /* GLKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLKitViewController.m; sourceTree = "<group>"; };
 		4BAB8B072292F44600A8D406 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		D7F3493E2293F73C00AEF51A /* GLSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLViewController.h; sourceTree = "<group>"; };
+		D7F3493F2293F73C00AEF51A /* GLSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLViewController.m; sourceTree = "<group>"; };
+		D7F349462293FED300AEF51A /* GLSLShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLShader.h; sourceTree = "<group>"; };
+		D7F349472293FED300AEF51A /* GLSLShader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLShader.m; sourceTree = "<group>"; };
+		D7F349492294064C00AEF51A /* shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.fsh; sourceTree = "<group>"; };
+		D7F3494A2294064C00AEF51A /* shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +73,13 @@
 		4BAB8AAF2292E04500A8D406 /* LearnOpenGL-APP */ = {
 			isa = PBXGroup;
 			children = (
+				D7F349422293F77300AEF51A /* 02-GLSL */,
+				D7F349412293F75F00AEF51A /* 01-GLKit */,
 				4BAB8B072292F44600A8D406 /* sample.jpg */,
 				4BAB8AB02292E04500A8D406 /* AppDelegate.h */,
 				4BAB8AB12292E04500A8D406 /* AppDelegate.m */,
-				4BAB8AB32292E04500A8D406 /* ViewController.h */,
-				4BAB8AB42292E04500A8D406 /* ViewController.m */,
-				4BAB8AC62292E56500A8D406 /* GLKitViewController.h */,
-				4BAB8AC72292E56500A8D406 /* GLKitViewController.m */,
+				4BAB8AB32292E04500A8D406 /* TBViewController.h */,
+				4BAB8AB42292E04500A8D406 /* TBViewController.m */,
 				4BAB8AB62292E04500A8D406 /* Main.storyboard */,
 				4BAB8AB92292E04900A8D406 /* Assets.xcassets */,
 				4BAB8ABB2292E04900A8D406 /* LaunchScreen.storyboard */,
@@ -77,6 +87,28 @@
 				4BAB8ABF2292E04900A8D406 /* main.m */,
 			);
 			path = "LearnOpenGL-APP";
+			sourceTree = "<group>";
+		};
+		D7F349412293F75F00AEF51A /* 01-GLKit */ = {
+			isa = PBXGroup;
+			children = (
+				4BAB8AC62292E56500A8D406 /* GLKitViewController.h */,
+				4BAB8AC72292E56500A8D406 /* GLKitViewController.m */,
+			);
+			name = "01-GLKit";
+			sourceTree = "<group>";
+		};
+		D7F349422293F77300AEF51A /* 02-GLSL */ = {
+			isa = PBXGroup;
+			children = (
+				D7F349492294064C00AEF51A /* shader.fsh */,
+				D7F3494A2294064C00AEF51A /* shader.vsh */,
+				D7F3493E2293F73C00AEF51A /* GLSLViewController.h */,
+				D7F3493F2293F73C00AEF51A /* GLSLViewController.m */,
+				D7F349462293FED300AEF51A /* GLSLShader.h */,
+				D7F349472293FED300AEF51A /* GLSLShader.m */,
+			);
+			path = "02-GLSL";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +168,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F3494B2294064C00AEF51A /* shader.fsh in Resources */,
+				D7F3494C2294064C00AEF51A /* shader.vsh in Resources */,
 				4BAB8ABD2292E04900A8D406 /* LaunchScreen.storyboard in Resources */,
 				4BAB8ABA2292E04900A8D406 /* Assets.xcassets in Resources */,
 				4BAB8AB82292E04500A8D406 /* Main.storyboard in Resources */,
@@ -150,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BAB8AB52292E04500A8D406 /* ViewController.m in Sources */,
+				D7F349402293F73C00AEF51A /* GLSLViewController.m in Sources */,
+				4BAB8AB52292E04500A8D406 /* TBViewController.m in Sources */,
 				4BAB8AC02292E04900A8D406 /* main.m in Sources */,
 				4BAB8AC82292E56500A8D406 /* GLKitViewController.m in Sources */,
 				4BAB8AB22292E04500A8D406 /* AppDelegate.m in Sources */,
+				D7F349482293FED300AEF51A /* GLSLShader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -314,7 +350,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
