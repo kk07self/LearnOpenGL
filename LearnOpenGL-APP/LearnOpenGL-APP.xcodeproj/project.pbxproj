@@ -15,9 +15,10 @@
 		4BAB8AC02292E04900A8D406 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8ABF2292E04900A8D406 /* main.m */; };
 		4BAB8AC82292E56500A8D406 /* GLKitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8AC72292E56500A8D406 /* GLKitViewController.m */; };
 		4BAB8B082292F44600A8D406 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B072292F44600A8D406 /* sample.jpg */; };
-		4BAB8B0B229589C800A8D406 /* LongLegsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0A229589C800A8D406 /* LongLegsViewController.m */; };
 		4BAB8B0D2295913700A8D406 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0C2295913700A8D406 /* girl.jpg */; };
 		4BAB8B102295915D00A8D406 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0F2295915D00A8D406 /* ContentView.m */; };
+		D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA48B229641DE001E4480 /* LongLegsViewController.m */; };
+		D7BCA48E22968739001E4480 /* hahah.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA48D22968739001E4480 /* hahah.jpeg */; };
 		D7F349402293F73C00AEF51A /* GLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F3493F2293F73C00AEF51A /* GLSLViewController.m */; };
 		D7F349482293FED300AEF51A /* GLSLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F349472293FED300AEF51A /* GLSLShader.m */; };
 		D7F3494B2294064C00AEF51A /* shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7F349492294064C00AEF51A /* shader.fsh */; };
@@ -38,11 +39,12 @@
 		4BAB8AC62292E56500A8D406 /* GLKitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLKitViewController.h; sourceTree = "<group>"; };
 		4BAB8AC72292E56500A8D406 /* GLKitViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLKitViewController.m; sourceTree = "<group>"; };
 		4BAB8B072292F44600A8D406 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
-		4BAB8B09229589C800A8D406 /* LongLegsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LongLegsViewController.h; sourceTree = SOURCE_ROOT; };
-		4BAB8B0A229589C800A8D406 /* LongLegsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LongLegsViewController.m; sourceTree = SOURCE_ROOT; };
 		4BAB8B0C2295913700A8D406 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
 		4BAB8B0E2295915D00A8D406 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		4BAB8B0F2295915D00A8D406 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		D7BCA48A229641DE001E4480 /* LongLegsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongLegsViewController.h; sourceTree = "<group>"; };
+		D7BCA48B229641DE001E4480 /* LongLegsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongLegsViewController.m; sourceTree = "<group>"; };
+		D7BCA48D22968739001E4480 /* hahah.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahah.jpeg; sourceTree = "<group>"; };
 		D7F3493E2293F73C00AEF51A /* GLSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLViewController.h; sourceTree = "<group>"; };
 		D7F3493F2293F73C00AEF51A /* GLSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLViewController.m; sourceTree = "<group>"; };
 		D7F349462293FED300AEF51A /* GLSLShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLShader.h; sourceTree = "<group>"; };
@@ -123,11 +125,12 @@
 		D7F3494D2294E8F900AEF51A /* 03-LongLegs */ = {
 			isa = PBXGroup;
 			children = (
+				D7BCA48D22968739001E4480 /* hahah.jpeg */,
 				4BAB8B0C2295913700A8D406 /* girl.jpg */,
-				4BAB8B09229589C800A8D406 /* LongLegsViewController.h */,
-				4BAB8B0A229589C800A8D406 /* LongLegsViewController.m */,
 				4BAB8B0E2295915D00A8D406 /* ContentView.h */,
 				4BAB8B0F2295915D00A8D406 /* ContentView.m */,
+				D7BCA48A229641DE001E4480 /* LongLegsViewController.h */,
+				D7BCA48B229641DE001E4480 /* LongLegsViewController.m */,
 			);
 			path = "03-LongLegs";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7BCA48E22968739001E4480 /* hahah.jpeg in Resources */,
 				D7F3494B2294064C00AEF51A /* shader.fsh in Resources */,
 				D7F3494C2294064C00AEF51A /* shader.vsh in Resources */,
 				4BAB8ABD2292E04900A8D406 /* LaunchScreen.storyboard in Resources */,
@@ -211,9 +215,9 @@
 				4BAB8AC02292E04900A8D406 /* main.m in Sources */,
 				4BAB8AC82292E56500A8D406 /* GLKitViewController.m in Sources */,
 				4BAB8AB22292E04500A8D406 /* AppDelegate.m in Sources */,
+				D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */,
 				D7F349482293FED300AEF51A /* GLSLShader.m in Sources */,
 				4BAB8B102295915D00A8D406 /* ContentView.m in Sources */,
-				4BAB8B0B229589C800A8D406 /* LongLegsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EJ9JZRCD2K;
+				DEVELOPMENT_TEAM = M6DX88HX28;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -374,7 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EJ9JZRCD2K;
+				DEVELOPMENT_TEAM = M6DX88HX28;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
