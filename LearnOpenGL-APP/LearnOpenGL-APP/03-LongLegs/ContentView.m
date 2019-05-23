@@ -336,6 +336,41 @@ static NSInteger const kVertexCount = 8;  // 初始纹理高度占控件高度�
     glDrawArrays(GL_TRIANGLE_STRIP, 0, kVertexCount);
 }
 
+- (UIImage *)getResultImage {
+    [self resetTextureWithOriginWidth:self.currentImageSize.width originHeight:self.currentImageSize.height topY:self.currentTextureStartY bottomY:self.currentTextureEndY newHeight:self.currentNewHeight];
+    glBindFramebuffer(GL_FRAMEBUFFER, self.tmpFrameBuffer);
+    
+    CGSize imageSize = [self newImageSize];
+    UIImage *image = [self imageFromTextureWithWidth:imageSize.width height:imageSize.height];
+    glBindFramebuffer(GL_FRAMEBUFFER, 1);
+    return image;
+}
+
+// 返回某个纹理对应的 UIImage，调用前先绑定对应的帧缓存
+- (UIImage *)imageFromTextureWithWidth:(int)width height:(int)height {
+    int size = width * height * 4;
+    GLubyte *buffer = malloc(size);
+    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer, size, NULL);
+    int bitsPerComponent = 8;
+    int bitsPerPixel = 32;
+    int bytesPerRow = 4 * width;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+    CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+    
+    // 此时的 imageRef 是上下颠倒的，调用 CG 的方法重新绘制一遍，刚好翻转过来
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    free(buffer);
+    return image;
+}
+
 - (void)setTmpFrameBuffer:(GLuint)tmpFrameBuffer {
     if (!_tmpFrameBuffer) {
         glDeleteFramebuffers(1, &_tmpFrameBuffer);

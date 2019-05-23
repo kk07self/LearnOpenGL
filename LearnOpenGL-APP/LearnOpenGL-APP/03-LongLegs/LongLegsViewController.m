@@ -8,6 +8,7 @@
 
 #import "LongLegsViewController.h"
 #import "ContentView.h"
+#import <Photos/Photos.h>
 
 @interface LongLegsViewController ()
 
@@ -28,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 获取图片
-    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"girl.jpg"];
+    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hahah.jpeg"];
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     [self.contentView updateImage:image];
     
@@ -46,6 +47,17 @@
     CGFloat textureOriginHeight = 0.7f; // 初始纹理占 View 的比例
     self.topC.constant = ((self.currentTop * textureOriginHeight) + (1 - textureOriginHeight) / 2) * self.contentView.bounds.size.height;
     self.bottomC.constant = ((self.currentBottom * textureOriginHeight) + (1 - textureOriginHeight) / 2) * self.contentView.bounds.size.height;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
+}
+
+- (void)save {
+    UIImage *image = [self.contentView getResultImage];
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        NSLog(@"success = %d, error = %@", success, error);
+    }];
 }
 
 
