@@ -10,7 +10,7 @@
 #import "ContentView.h"
 #import <Photos/Photos.h>
 
-@interface LongLegsViewController ()
+@interface LongLegsViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *top;
 @property (weak, nonatomic) IBOutlet ContentView *contentView;
@@ -22,6 +22,8 @@
 @property (nonatomic, assign) CGFloat currentTop;  // 上方横线距离纹理顶部的高度
 @property (nonatomic, assign) CGFloat currentBottom;    // 下方横线距离纹理顶部的高度
 
+@property (weak, nonatomic) UIImagePickerController *picker;
+
 @end
 
 @implementation LongLegsViewController
@@ -29,7 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 获取图片
-    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"hahah.jpeg"];
+    NSString *imagePath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"girl.jpg"];
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     [self.contentView updateImage:image];
     
@@ -48,16 +50,9 @@
     self.topC.constant = ((self.currentTop * textureOriginHeight) + (1 - textureOriginHeight) / 2) * self.contentView.bounds.size.height;
     self.bottomC.constant = ((self.currentBottom * textureOriginHeight) + (1 - textureOriginHeight) / 2) * self.contentView.bounds.size.height;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
-}
-
-- (void)save {
-    UIImage *image = [self.contentView getResultImage];
-    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
-        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
-    } completionHandler:^(BOOL success, NSError * _Nullable error) {
-        NSLog(@"success = %d, error = %@", success, error);
-    }];
+    UIBarButtonItem *save = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
+    UIBarButtonItem *select = [[UIBarButtonItem alloc] initWithTitle:@"选择照片" style:UIBarButtonItemStyleDone target:self action:@selector(chooseImage)];
+    self.navigationItem.rightBarButtonItems = @[save, select];
 }
 
 
@@ -103,5 +98,34 @@
     [self.contentView stretchingFromStartY:self.currentTop toEndY:self.currentBottom withNewHeight:newHeight];
 }
 
+
+- (void)chooseImage {
+    UIImagePickerController *pick = [[UIImagePickerController alloc] init];
+    pick.delegate = self;
+    pick.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:pick animated:YES completion:nil];
+    self.picker = pick;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<UIImagePickerControllerInfoKey,id> *)info {
+    if ([[info valueForKey:UIImagePickerControllerMediaType] isEqualToString:@"public.image"]) {
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
+        [self.contentView updateImage:image];
+    }
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self.picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)save {
+    UIImage *image = [self.contentView getResultImage];
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        NSLog(@"success = %d, error = %@", success, error);
+    }];
+}
 
 @end

@@ -253,7 +253,10 @@ static NSInteger const kVertexCount = 8;  // 初始纹理高度占控件高度�
 
 
 /**
- 计算新纹理坐标
+ 计算新纹理坐标：
+ 将原来大小的图片纹理区域取出，放到更大的绘制区域里以达到拉伸的效果，其他部分不变放到对应的区间内
+ startY和endY是获取被拉伸的图片纹理
+ newHeight 是拉伸的目标（endY-startY < newHeight, 拉伸的；否则是缩短的）
 
  @param size 图片纹理大小
  @param startY 拉伸的开始位置

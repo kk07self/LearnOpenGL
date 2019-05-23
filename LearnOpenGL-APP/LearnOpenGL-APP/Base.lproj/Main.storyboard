@@ -130,11 +130,11 @@
                                     <constraint firstAttribute="height" constant="1" id="L6l-Xz-JhO"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOd-EI-yfw" userLabel="mask">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOd-EI-yfw" userLabel="mask">
                                 <rect key="frame" x="0.0" y="136" width="414" height="1"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="0.51811322770000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ls-9o-hB0">
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ls-9o-hB0">
                                 <rect key="frame" x="0.0" y="136" width="414" height="1"/>
                                 <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="0.51811322770000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
