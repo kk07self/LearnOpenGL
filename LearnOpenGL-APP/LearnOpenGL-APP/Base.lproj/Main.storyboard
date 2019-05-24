@@ -38,6 +38,7 @@
                         <segue destination="Wkg-Jb-6rb" kind="show" identifier="GLKitViewController" id="Jwa-F9-fM1"/>
                         <segue destination="hTG-zw-06G" kind="show" identifier="GLSLViewController" id="1eu-IB-sRu"/>
                         <segue destination="ohl-Bj-Y0S" kind="show" identifier="LongLegsViewController" id="Thi-XA-GY2"/>
+                        <segue destination="xQA-7g-jY4" kind="show" identifier="FilterViewController" id="fEO-5k-6Qx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fd-UN-A4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Vv-g8-OnY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-526" y="891"/>
+            <point key="canvasLocation" x="-1672" y="907"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1In-PF-wlG">
@@ -188,7 +189,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8eH-iA-hnO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="200.00000000000003" y="890.625"/>
+            <point key="canvasLocation" x="-946" y="907"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="7tZ-ku-j4B">
+            <objects>
+                <viewController id="xQA-7g-jY4" customClass="FilterViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7vG-L1-YKi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-oT-9OA" customClass="FilterShaderBar">
+                                <rect key="frame" x="0.0" y="782" width="414" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="ZwK-0l-pVD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GVv-oT-9OA" firstAttribute="leading" secondItem="8sN-U6-2F7" secondAttribute="leading" id="Xgb-0Y-ULd"/>
+                            <constraint firstItem="8sN-U6-2F7" firstAttribute="trailing" secondItem="GVv-oT-9OA" secondAttribute="trailing" id="mvu-MB-2dG"/>
+                            <constraint firstItem="8sN-U6-2F7" firstAttribute="bottom" secondItem="GVv-oT-9OA" secondAttribute="bottom" id="ykh-00-g9C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8sN-U6-2F7"/>
+                    </view>
+                    <connections>
+                        <outlet property="filterShaderBar" destination="GVv-oT-9OA" id="VYB-YE-JaQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="crA-mj-87R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="893"/>
         </scene>
     </scenes>
 </document>
