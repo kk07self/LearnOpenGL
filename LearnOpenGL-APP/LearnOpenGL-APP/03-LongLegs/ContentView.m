@@ -49,6 +49,17 @@ static NSInteger const kVertexCount = 8;  // 初始纹理高度占控件高度�
 
 @implementation ContentView
 
+- (void)dealloc {
+    if ([EAGLContext currentContext] == self.context) {
+        [EAGLContext setCurrentContext:nil];
+    }
+    // C语言风格的数组，需要手动释放
+    if (_vertices) {
+        free(_vertices);
+        _vertices = nil;
+    }
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self commonInit];
@@ -70,7 +81,6 @@ static NSInteger const kVertexCount = 8;  // 初始纹理高度占控件高度�
     
     // 创建顶点数组
     self.vertices = malloc(sizeof(SenceVertex) * kVertexCount); // 8 个顶点
-    
 }
 
 

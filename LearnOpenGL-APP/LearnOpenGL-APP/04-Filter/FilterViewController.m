@@ -56,10 +56,27 @@ typedef struct {
 
 @implementation FilterViewController
 
+- (void)dealloc {
+    if ([EAGLContext currentContext] == self.mContext) {
+        [EAGLContext setCurrentContext:nil];
+    }
+    // C语言风格的数组，需要手动释放
+    if (_vertices) {
+        free(_vertices);
+        _vertices = nil;
+    }
+    NSLog(@"----------FilterViewController:____delloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self commonInit];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self cancelDisplaylink];
 }
 
 

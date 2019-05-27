@@ -54,7 +54,7 @@
     CGFloat itemH = CGRectGetHeight(self.frame);
     flowLayout.itemSize = CGSizeMake(itemW + 20, itemH);
     
-    flowLayout.sectionInset = UIEdgeInsetsMake(0, 10, 0, -10);
+    flowLayout.sectionInset = UIEdgeInsetsMake(0, 10, 0, 30);
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];

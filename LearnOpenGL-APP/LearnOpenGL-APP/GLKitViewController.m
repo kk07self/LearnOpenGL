@@ -26,6 +26,14 @@ typedef struct {
 
 @implementation GLKitViewController
 
+
+- (void)dealloc {
+    if ([EAGLContext currentContext] == self.mContext) {
+        [EAGLContext setCurrentContext:nil];
+    }
+    NSLog(@"----------GLKitViewController:____delloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self config];

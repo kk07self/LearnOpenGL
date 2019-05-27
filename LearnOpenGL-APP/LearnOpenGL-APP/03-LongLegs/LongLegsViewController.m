@@ -28,6 +28,10 @@
 
 @implementation LongLegsViewController
 
+- (void)dealloc {
+    NSLog(@"----------LongLegsViewController:____delloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 获取图片

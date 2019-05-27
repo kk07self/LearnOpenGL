@@ -39,6 +39,8 @@ typedef struct {
         free(_vertices);
         _vertices = nil;
     }
+    
+    NSLog(@"----------GLSLViewController:____delloc");
 }
 
 - (void)viewDidLoad {
