@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIViewController+Statistics.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

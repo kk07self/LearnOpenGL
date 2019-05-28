@@ -36,6 +36,7 @@
 		D7BCA4B02297E312001E4480 /* illusion.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA4A62297E312001E4480 /* illusion.vsh */; };
 		D7BCA4B12297E312001E4480 /* glitch.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA4A72297E312001E4480 /* glitch.vsh */; };
 		D7BCA4B42297E8E9001E4480 /* FilterShaderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA4B32297E8E9001E4480 /* FilterShaderBar.m */; };
+		D7BCA5F0229D4CEA001E4480 /* UIViewController+Statistics.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA5EF229D4CEA001E4480 /* UIViewController+Statistics.m */; };
 		D7F349402293F73C00AEF51A /* GLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F3493F2293F73C00AEF51A /* GLSLViewController.m */; };
 		D7F349482293FED300AEF51A /* GLSLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F349472293FED300AEF51A /* GLSLShader.m */; };
 		D7F3494B2294064C00AEF51A /* shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7F349492294064C00AEF51A /* shader.fsh */; };
@@ -81,6 +82,8 @@
 		D7BCA4A72297E312001E4480 /* glitch.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = glitch.vsh; sourceTree = "<group>"; };
 		D7BCA4B22297E8E9001E4480 /* FilterShaderBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterShaderBar.h; sourceTree = "<group>"; };
 		D7BCA4B32297E8E9001E4480 /* FilterShaderBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterShaderBar.m; sourceTree = "<group>"; };
+		D7BCA5EE229D4CEA001E4480 /* UIViewController+Statistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Statistics.h"; sourceTree = "<group>"; };
+		D7BCA5EF229D4CEA001E4480 /* UIViewController+Statistics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Statistics.m"; sourceTree = "<group>"; };
 		D7F3493E2293F73C00AEF51A /* GLSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLViewController.h; sourceTree = "<group>"; };
 		D7F3493F2293F73C00AEF51A /* GLSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLViewController.m; sourceTree = "<group>"; };
 		D7F349462293FED300AEF51A /* GLSLShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLShader.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 				4BAB8AB12292E04500A8D406 /* AppDelegate.m */,
 				4BAB8AB32292E04500A8D406 /* TBViewController.h */,
 				4BAB8AB42292E04500A8D406 /* TBViewController.m */,
+				D7BCA5EE229D4CEA001E4480 /* UIViewController+Statistics.h */,
+				D7BCA5EF229D4CEA001E4480 /* UIViewController+Statistics.m */,
 				4BAB8AB62292E04500A8D406 /* Main.storyboard */,
 				4BAB8AB92292E04900A8D406 /* Assets.xcassets */,
 				4BAB8ABB2292E04900A8D406 /* LaunchScreen.storyboard */,
@@ -304,6 +309,7 @@
 				4BAB8AC82292E56500A8D406 /* GLKitViewController.m in Sources */,
 				4BAB8AB22292E04500A8D406 /* AppDelegate.m in Sources */,
 				D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */,
+				D7BCA5F0229D4CEA001E4480 /* UIViewController+Statistics.m in Sources */,
 				D7F349482293FED300AEF51A /* GLSLShader.m in Sources */,
 				4BAB8B102295915D00A8D406 /* ContentView.m in Sources */,
 			);
@@ -448,14 +454,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EJ9JZRCD2K;
+				DEVELOPMENT_TEAM = 9343N69MHG;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "KK.LearnOpenGL-APP";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kirk.LearnOpenGL-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -466,14 +472,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = EJ9JZRCD2K;
+				DEVELOPMENT_TEAM = 9343N69MHG;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "KK.LearnOpenGL-APP";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kirk.LearnOpenGL-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
