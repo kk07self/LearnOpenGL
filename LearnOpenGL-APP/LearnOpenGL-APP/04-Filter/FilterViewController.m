@@ -97,6 +97,7 @@ typedef struct {
     CAEAGLLayer *layer = [[CAEAGLLayer alloc] init];
     layer.frame = CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.width);
     layer.contentsScale = [UIScreen mainScreen].scale;
+    layer.backgroundColor = [UIColor blackColor].CGColor;
     [self.view.layer addSublayer:layer];
     
     
@@ -127,9 +128,11 @@ typedef struct {
 
 - (void)uploadShader {
     // 创建纹理
-    UIImage *image = [UIImage imageNamed:@"sample_filter.jpg"];
-    _textureID = [self createTextureWithImage:image];
-    
+    if (_textureID == 0) {
+        UIImage *image = [UIImage imageNamed:@"sample_filter.jpg"];
+        _textureID = [self createTextureWithImage:image];
+    }
+    NSLog(@"--------textureID: %d", _textureID);
     // 设置窗口
     glViewport(0, 0, [self drawableWidth], [self drawableHeight]);
     
