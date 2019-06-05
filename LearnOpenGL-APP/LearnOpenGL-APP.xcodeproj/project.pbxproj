@@ -17,6 +17,8 @@
 		4BAB8B082292F44600A8D406 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B072292F44600A8D406 /* sample.jpg */; };
 		4BAB8B0D2295913700A8D406 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0C2295913700A8D406 /* girl.jpg */; };
 		4BAB8B102295915D00A8D406 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0F2295915D00A8D406 /* ContentView.m */; };
+		D7B31DDA22A7E0320084D1FA /* CombinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DD922A7E0320084D1FA /* CombinationViewController.m */; };
+		D7B31DDD22A7E1DD0084D1FA /* CombineFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */; };
 		D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA48B229641DE001E4480 /* LongLegsViewController.m */; };
 		D7BCA48E22968739001E4480 /* hahah.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA48D22968739001E4480 /* hahah.jpeg */; };
 		D7BCA4922297BEF2001E4480 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA4912297BEF2001E4480 /* FilterViewController.m */; };
@@ -60,6 +62,10 @@
 		4BAB8B0C2295913700A8D406 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
 		4BAB8B0E2295915D00A8D406 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		4BAB8B0F2295915D00A8D406 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		D7B31DD822A7E0320084D1FA /* CombinationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombinationViewController.h; sourceTree = "<group>"; };
+		D7B31DD922A7E0320084D1FA /* CombinationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombinationViewController.m; sourceTree = "<group>"; };
+		D7B31DDB22A7E1DD0084D1FA /* CombineFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineFilter.h; sourceTree = "<group>"; };
+		D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombineFilter.m; sourceTree = "<group>"; };
 		D7BCA48A229641DE001E4480 /* LongLegsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongLegsViewController.h; sourceTree = "<group>"; };
 		D7BCA48B229641DE001E4480 /* LongLegsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongLegsViewController.m; sourceTree = "<group>"; };
 		D7BCA48D22968739001E4480 /* hahah.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahah.jpeg; sourceTree = "<group>"; };
@@ -122,6 +128,7 @@
 		4BAB8AAF2292E04500A8D406 /* LearnOpenGL-APP */ = {
 			isa = PBXGroup;
 			children = (
+				D7B31DD722A7DFE30084D1FA /* 05-combination */,
 				D7BCA48F2297BB73001E4480 /* 04-Filter */,
 				D7F3494D2294E8F900AEF51A /* 03-LongLegs */,
 				D7F349422293F77300AEF51A /* 02-GLSL */,
@@ -140,6 +147,17 @@
 				4BAB8ABF2292E04900A8D406 /* main.m */,
 			);
 			path = "LearnOpenGL-APP";
+			sourceTree = "<group>";
+		};
+		D7B31DD722A7DFE30084D1FA /* 05-combination */ = {
+			isa = PBXGroup;
+			children = (
+				D7B31DD822A7E0320084D1FA /* CombinationViewController.h */,
+				D7B31DD922A7E0320084D1FA /* CombinationViewController.m */,
+				D7B31DDB22A7E1DD0084D1FA /* CombineFilter.h */,
+				D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */,
+			);
+			path = "05-combination";
 			sourceTree = "<group>";
 		};
 		D7BCA48F2297BB73001E4480 /* 04-Filter */ = {
@@ -301,8 +319,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7B31DDA22A7E0320084D1FA /* CombinationViewController.m in Sources */,
 				D7F349402293F73C00AEF51A /* GLSLViewController.m in Sources */,
 				D7BCA4922297BEF2001E4480 /* FilterViewController.m in Sources */,
+				D7B31DDD22A7E1DD0084D1FA /* CombineFilter.m in Sources */,
 				D7BCA4B42297E8E9001E4480 /* FilterShaderBar.m in Sources */,
 				4BAB8AB52292E04500A8D406 /* TBViewController.m in Sources */,
 				4BAB8AC02292E04900A8D406 /* main.m in Sources */,

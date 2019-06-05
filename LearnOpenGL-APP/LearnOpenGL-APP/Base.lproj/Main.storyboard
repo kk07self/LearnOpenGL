@@ -39,6 +39,7 @@
                         <segue destination="hTG-zw-06G" kind="show" identifier="GLSLViewController" id="1eu-IB-sRu"/>
                         <segue destination="ohl-Bj-Y0S" kind="show" identifier="LongLegsViewController" id="Thi-XA-GY2"/>
                         <segue destination="xQA-7g-jY4" kind="show" identifier="FilterViewController" id="fEO-5k-6Qx"/>
+                        <segue destination="tb8-7V-77B" kind="show" identifier="CombinationViewController" id="8CC-rm-nlE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Fd-UN-A4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,6 +223,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="crA-mj-87R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6" y="893"/>
+        </scene>
+        <!--Combination View Controller-->
+        <scene sceneID="kHq-Mb-e2I">
+            <objects>
+                <viewController id="tb8-7V-77B" customClass="CombinationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Rrr-PI-rDW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Sdj-Ke-Xx7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4h2-0s-JmZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="907" y="893"/>
         </scene>
     </scenes>
 </document>
