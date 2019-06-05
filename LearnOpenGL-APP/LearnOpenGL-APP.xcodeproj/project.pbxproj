@@ -20,7 +20,7 @@
 		D7B31DDA22A7E0320084D1FA /* CombinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DD922A7E0320084D1FA /* CombinationViewController.m */; };
 		D7B31DDD22A7E1DD0084D1FA /* CombineFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */; };
 		D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA48B229641DE001E4480 /* LongLegsViewController.m */; };
-		D7BCA48E22968739001E4480 /* hahah.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA48D22968739001E4480 /* hahah.jpeg */; };
+		D7BCA48E22968739001E4480 /* hahah.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA48D22968739001E4480 /* hahah.jpg */; };
 		D7BCA4922297BEF2001E4480 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA4912297BEF2001E4480 /* FilterViewController.m */; };
 		D7BCA4952297C88B001E4480 /* scale.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA4932297C88A001E4480 /* scale.vsh */; };
 		D7BCA4962297C88B001E4480 /* scale.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA4942297C88A001E4480 /* scale.fsh */; };
@@ -68,7 +68,7 @@
 		D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombineFilter.m; sourceTree = "<group>"; };
 		D7BCA48A229641DE001E4480 /* LongLegsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongLegsViewController.h; sourceTree = "<group>"; };
 		D7BCA48B229641DE001E4480 /* LongLegsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongLegsViewController.m; sourceTree = "<group>"; };
-		D7BCA48D22968739001E4480 /* hahah.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahah.jpeg; sourceTree = "<group>"; };
+		D7BCA48D22968739001E4480 /* hahah.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahah.jpg; sourceTree = "<group>"; };
 		D7BCA4902297BEF2001E4480 /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
 		D7BCA4912297BEF2001E4480 /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		D7BCA4932297C88A001E4480 /* scale.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scale.vsh; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 		D7F3494D2294E8F900AEF51A /* 03-LongLegs */ = {
 			isa = PBXGroup;
 			children = (
-				D7BCA48D22968739001E4480 /* hahah.jpeg */,
+				D7BCA48D22968739001E4480 /* hahah.jpg */,
 				4BAB8B0C2295913700A8D406 /* girl.jpg */,
 				4BAB8B0E2295915D00A8D406 /* ContentView.h */,
 				4BAB8B0F2295915D00A8D406 /* ContentView.m */,
@@ -291,7 +291,7 @@
 				D7BCA4962297C88B001E4480 /* scale.fsh in Resources */,
 				D7BCA4A82297E312001E4480 /* flashWhite.vsh in Resources */,
 				D7BCA4982297CF2F001E4480 /* sample_filter.jpg in Resources */,
-				D7BCA48E22968739001E4480 /* hahah.jpeg in Resources */,
+				D7BCA48E22968739001E4480 /* hahah.jpg in Resources */,
 				D7BCA4AE2297E312001E4480 /* illusion.fsh in Resources */,
 				D7BCA4952297C88B001E4480 /* scale.vsh in Resources */,
 				D7F3494B2294064C00AEF51A /* shader.fsh in Resources */,
@@ -474,7 +474,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9343N69MHG;
+				DEVELOPMENT_TEAM = EJ9JZRCD2K;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -492,7 +492,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9343N69MHG;
+				DEVELOPMENT_TEAM = EJ9JZRCD2K;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -26,7 +26,8 @@
     _demos = @[@{@"00-GLKit-加载纹理":@"GLKitViewController"},
                @{@"01-GLSL-加载纹理" :@"GLSLViewController"},
                @{@"02-GLSL-长腿功能" :@"LongLegsViewController"},
-               @{@"03-GLSL-抖音特效" :@"FilterViewController"}];
+               @{@"03-GLSL-抖音特效" :@"FilterViewController"},
+               @{@"04-GLSL-图片组合" :@"CombinationViewController"}];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"TBViewControllerCellID"];
 }

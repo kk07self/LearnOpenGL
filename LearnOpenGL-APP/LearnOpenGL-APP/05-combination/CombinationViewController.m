@@ -7,6 +7,7 @@
 //
 
 #import "CombinationViewController.h"
+#import "CombineFilter.h"
 
 @interface CombinationViewController ()
 
@@ -25,6 +26,9 @@
     _previewLayer.frame = CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.width);
     [self.view.layer insertSublayer:_previewLayer atIndex:0];
     
+    CombineFilter *com = [[CombineFilter alloc] init];
+    [com draw];
+    _previewLayer.contents = (__bridge id _Nullable)([com getImage]);
 }
 
 
