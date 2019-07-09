@@ -30,10 +30,6 @@ void checkCompileErrors(GLuint shader, NSString* type) {
 
 @interface GLSLShader()
 
-/**
- programID
- */
-@property (nonatomic, assign) GLuint program;
 
 @end
 

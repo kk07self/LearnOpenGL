@@ -8,6 +8,7 @@
 
 #import "CombineFilter.h"
 #import <GLKit/GLKit.h>
+#import "GLSLShader.h"
 
 #define STRINGIZE(x) #x
 #define STRINGIZE2(x) STRINGIZE(x)
@@ -54,7 +55,7 @@ NSString *const lsqTuSDKGPUCombineFragmentShaderString = SHADER_STRING
  );
 
 
-void checkCompileErrors(GLuint shader, NSString* type) {
+void checkCompileErrors_(GLuint shader, NSString* type) {
     int success;
     char infoLog[1024];
     
@@ -93,6 +94,8 @@ void checkCompileErrors(GLuint shader, NSString* type) {
     
     UIImage *image1;
     UIImage *image2;
+    
+    GLSLShader *shader;
 }
 
 @end
@@ -103,13 +106,15 @@ void checkCompileErrors(GLuint shader, NSString* type) {
     if (self = [super init]) {
         image1 = [UIImage imageNamed:@"sample_filter.jpg"];
         image2 = [UIImage imageNamed:@"hahah.jpg"];
-        [self initProgram];
-        [self createTextures];
     }
     return self;
 }
 
 - (void)draw {
+    
+    [self initProgram];
+    [self createTextures];
+    
     glViewport(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
     glUseProgram(_program);
     
@@ -158,33 +163,34 @@ void checkCompileErrors(GLuint shader, NSString* type) {
         return;
     }
     
-    GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
-    const char *vertexC = [lsqTuSDKGPUCombineVertexShaderString UTF8String];
-    int vertexStringLenght = (int)[lsqTuSDKGPUCombineVertexShaderString length];
-    glShaderSource(vertex, 1, &vertexC, &vertexStringLenght);
-    glCompileShader(vertex);
-    checkCompileErrors(vertex, @"VERTEX");
+//    GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
+//    const char *vertexC = [lsqTuSDKGPUCombineVertexShaderString UTF8String];
+//    int vertexStringLenght = (int)[lsqTuSDKGPUCombineVertexShaderString length];
+//    glShaderSource(vertex, 1, &vertexC, &vertexStringLenght);
+//    glCompileShader(vertex);
+//    checkCompileErrors_(vertex, @"VERTEX");
+//
+//    GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
+//    const char *fragmentC = [lsqTuSDKGPUCombineFragmentShaderString UTF8String];
+//    int fragmentStringLenght = (int)[lsqTuSDKGPUCombineFragmentShaderString length];
+//    glShaderSource(fragment, 1, &fragmentC, &fragmentStringLenght);
+//    glCompileShader(fragment);
+//    checkCompileErrors_(fragment, @"FRAGMENT");
+//
+//    GLuint program = glCreateProgram();
+//    glAttachShader(program, vertex);
+//    glAttachShader(program, fragment);
+//    glLinkProgram(program);
+//    checkCompileErrors_(program, @"PROGRAM");
+    GLSLShader *shader = [GLSLShader shaderWithVertexPath:@"c_shader" fragmentPath:@"c_shader"];
+    _program = shader.program;
     
-    GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
-    const char *fragmentC = [lsqTuSDKGPUCombineVertexShaderString UTF8String];
-    int fragmentStringLenght = (int)[lsqTuSDKGPUCombineVertexShaderString length];
-    glShaderSource(fragment, 1, &fragmentC, &fragmentStringLenght);
-    glCompileShader(fragment);
-    checkCompileErrors(fragment, @"FRAGMENT");
+    _position = glGetAttribLocation(_program, "position");
+    _inputTexture1Coordinate = glGetAttribLocation(_program, "inputTextureCoordinate");
+    _inputTexture2Coordinate = glGetAttribLocation(_program, "inputTexture2Coordinate");
     
-    GLuint program = glCreateProgram();
-    glAttachShader(program, vertex);
-    glAttachShader(program, fragment);
-    glLinkProgram(program);
-    checkCompileErrors(program, @"PROGRAM");
-    _program = program;
-    
-    _position = glGetAttribLocation(program, "position");
-    _inputTexture1Coordinate = glGetAttribLocation(program, "inputTextureCoordinate");
-    _inputTexture2Coordinate = glGetAttribLocation(program, "inputTexture2Coordinate");
-    
-    _inputTexture1Buffer = glGetUniformLocation(program, "inputImageTexture");
-    _inputTexture2Buffer = glGetUniformLocation(program, "inputImageTexture2");
+    _inputTexture1Buffer = glGetUniformLocation(_program, "inputImageTexture");
+    _inputTexture2Buffer = glGetUniformLocation(_program, "inputImageTexture2");
     
     isInitProgram = YES;
 }

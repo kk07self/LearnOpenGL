@@ -15,6 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shaderWithVertexPath:(NSString *)vertexPath fragmentPath:(NSString *)fragmentPath;
 
+/**
+ programID
+ */
+@property (nonatomic, assign) GLuint program;
+
+
 - (void)use;
 
 - (GLuint)getAttribLocation:(NSString *)name;

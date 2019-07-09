@@ -26,12 +26,14 @@
     _previewLayer.frame = CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.width);
     [self.view.layer insertSublayer:_previewLayer atIndex:0];
     
+    
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CombineFilter *com = [[CombineFilter alloc] init];
     [com draw];
     _previewLayer.contents = (__bridge id _Nullable)([com getImage]);
 }
-
-
 
 
 @end
