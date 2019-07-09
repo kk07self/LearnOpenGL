@@ -22,6 +22,10 @@ typedef struct {
 
 @interface FilterViewController ()<FilterShaderBarDelegate>
 
+{
+    GLuint renderBuffer, frameBuffer;
+}
+
 /** mContext */
 @property (nonatomic, strong) EAGLContext *mContext;
 
@@ -87,8 +91,83 @@ typedef struct {
     
     [self createLayer];
     [self uploadShader];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
 }
 
+// 冲framebuffer中拿出数据
+- (void)save {
+    // buffer
+    GLuint texture, frameBuffer;
+    glGenFramebuffers(1, &frameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, [self drawableWidth], [self drawableHeight], 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
+    
+    
+    // 纹理方式
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    
+    // 帧缓存绑定纹理
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
+    
+    // 设置窗口
+    glViewport(0, 0, [self drawableWidth], [self drawableHeight]);
+    
+    NSString *fileName = [self fileNameWith:(_currentIndex)];
+    _shader = [GLSLShader shaderWithVertexPath:fileName fragmentPath:fileName];
+    [_shader use];
+    
+    GLuint aPostion = [_shader getAttribLocation:@"aPos"];
+    GLuint texCoord = [_shader getAttribLocation:@"aTexCoord"];
+    GLuint textureLoc  = [_shader getUniformLocation:@"texture1"];
+    
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _textureID);
+    glUniform1i(textureLoc, 0);
+    
+    [self uploadVertexArray];
+    
+    glEnableVertexAttribArray(aPostion);
+    glVertexAttribPointer(aPostion, 3, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, positionCoord));
+    
+    glEnableVertexAttribArray(texCoord);
+    glVertexAttribPointer(texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, textureCoord));
+    
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    
+    
+    CGFloat width = [self drawableWidth];
+    CGFloat height = [self drawableHeight];
+    int size = width * height * 4;
+    GLubyte *buffer = malloc(size);
+    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer, size, NULL);
+    int bitsPerComponent = 8;
+    int bitsPerPixel = 32;
+    int bytesPerRow = 4 * width;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+    CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+    
+    // 此时的 imageRef 是上下颠倒的，调用 CG 的方法重新绘制一遍，刚好翻转过来
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
+    UIImage *imageN = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    free(buffer);
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:imageN];
+    imageView.frame = CGRectMake(0, 200, 375, 375);
+    [self.view addSubview:imageView];
+}
 
 
 #pragma mark - texture
@@ -102,7 +181,6 @@ typedef struct {
     
     
     // binder layer
-    GLuint renderBuffer, frameBuffer;
     glGenRenderbuffers(1, &renderBuffer);
     glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
     [self.mContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:layer];
@@ -133,6 +211,10 @@ typedef struct {
         _textureID = [self createTextureWithImage:image];
     }
     NSLog(@"--------textureID: %d", _textureID);
+    
+    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    
     // 设置窗口
     glViewport(0, 0, [self drawableWidth], [self drawableHeight]);
     
@@ -172,6 +254,8 @@ typedef struct {
     }
     glClearColor(0, 0, 0, 0);
     glClear(GL_COLOR_BUFFER_BIT);
+    
+    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
     
     [_shader use];
     
@@ -218,39 +302,23 @@ typedef struct {
 #pragma mark - tools
 
 - (GLuint)createTextureWithImage:(UIImage *)image {
-    CGImageRef cgImageRef = [image CGImage];
-    GLuint width  = (GLuint)CGImageGetWidth(cgImageRef);
-    GLuint height = (GLuint)CGImageGetHeight(cgImageRef);
-    CGRect rect = CGRectMake(0, 0, width, height);
     
-    // 绘制图片
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    void *imageData = malloc(width * height * 4);
-    CGContextRef context = CGBitmapContextCreate(imageData, width, height, 8, width * 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
-    CGContextTranslateCTM(context, 0, height);
-    CGContextScaleCTM(context, 1.0f, -1.0f);
-    CGColorSpaceRelease(colorSpace);
-    CGContextClearRect(context, rect);
-    CGContextDrawImage(context, rect, cgImageRef);
+    // effect
+    NSDictionary *options = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:[image CGImage]
+                                                               options:options
+                                                                 error:NULL];
+     glBindTexture(GL_TEXTURE_2D, textureInfo.name);
     
-    // 生成纹理
-    GLuint textureID;
-    glGenTextures(1, &textureID);
-    glBindTexture(GL_TEXTURE_2D, textureID);
-    // 设置纹理样式
     // 纹理环绕方式
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     // 纹理过滤方式
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height,0, GL_RGBA, GL_UNSIGNED_BYTE, imageData);
     
-    glBindTexture(GL_TEXTURE_2D, 0);
-    
-    CGContextRelease(context);
-    free(imageData);
-    return textureID;
+    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
+    return textureInfo.name;
 }
 
 
