@@ -91,8 +91,8 @@ int main(int argc, const char * argv[]) {
 
     // 创建纹理-------------------------------------
     // 创建文理：1> 生成纹理 2> 绑定纹理 3> 设置纹理属性
-    unsigned int texture1 = creatTexture("../resources/container.jpg", ImageType_RGB);
-    unsigned int texture2 = creatTexture("../resources/awesomeface.png", ImageType_RGBA);
+    unsigned int texture1 = creatTexture("resources/container.jpg", ImageType_RGB);
+    unsigned int texture2 = creatTexture("resources/awesomeface.png", ImageType_RGBA);
     
     
     // 设置采样器

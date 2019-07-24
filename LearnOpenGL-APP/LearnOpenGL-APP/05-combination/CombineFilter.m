@@ -10,6 +10,15 @@
 #import <GLKit/GLKit.h>
 #import "GLSLShader.h"
 
+/**
+ 定义顶点类型
+ */
+typedef struct {
+    GLKVector3 positionCoord; // (X, Y, Z)
+    GLKVector2 textureCoord; // (U, V)
+} SenceVertex;
+
+
 #define STRINGIZE(x) #x
 #define STRINGIZE2(x) STRINGIZE(x)
 #define SHADER_STRING(text) @ STRINGIZE2(text)
@@ -90,13 +99,15 @@ void checkCompileErrors_(GLuint shader, NSString* type) {
     
     GLuint texture1;
     GLuint texture2;
-    GLuint outFrameBuffer;
+    GLuint frameBuffer;
     
     UIImage *image1;
     UIImage *image2;
     
-    GLSLShader *shader;
+    GLSLShader *_shader;
 }
+
+@property (nonatomic, assign) SenceVertex *vertices; // 顶点数组
 
 @end
 
@@ -107,107 +118,134 @@ void checkCompileErrors_(GLuint shader, NSString* type) {
         image1 = [UIImage imageNamed:@"sample_filter.jpg"];
         image2 = [UIImage imageNamed:@"hahah.jpg"];
     }
+    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    [EAGLContext setCurrentContext:context];
     return self;
+}
+
+- (void)dealloc {
+    _shader = nil;
+    [EAGLContext setCurrentContext:nil];
 }
 
 - (void)draw {
     
-    [self initProgram];
-    [self createTextures];
+    // 创建纹理
+    if (texture1 == 0) {
+        
+        texture1 = [self createTextureWithImage:image1];
+        texture2 = [self createTextureWithImage:image2];
+    }
+    NSLog(@"--------texture1: %d", texture1);
+    NSLog(@"--------texture2: %d", texture2);
     
-    glViewport(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
-    glUseProgram(_program);
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     
-    // 清屏
-    glClearColor(46/255.0f, 47/255.0f, 67/255.0f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
+    // 设置窗口
+    glViewport(0, 0, [self drawableWidth], [self drawableHeight]);
+    _shader = [GLSLShader shaderWithVertexPath:@"c_shader" fragmentPath:@"c_shader"];
+    [_shader use];
     
-    // 绘制纹理
+    GLuint aPostion = [_shader getAttribLocation:@"position"];
+    GLuint texCoord1 = [_shader getAttribLocation:@"inputTextureCoordinate"];
+    GLuint inputTexture1  = [_shader getUniformLocation:@"inputImageTexture"];
+    
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, texture1);
-    glUniform1i(_inputTexture1Buffer, 0);
-    glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, texture2);
-    glUniform1i(_inputTexture2Buffer, 1);
+    glUniform1i(inputTexture1, 0);
     
-    GLfloat positions[] = {
+    
+    GLfloat vertices[] = {
+        -1.0f, 1.0f,
         -1.0f, -1.0f,
-        1.0f, -1.0f,
-        -1.0f,  1.0f,
-        1.0f,  1.0f
+        1.0f,  1.0f,
+        1.0f,  -1.0f,
     };
+
+//    GLfloat vertices[] = {
+//        -1.0f, 1.0f, // 左上
+//        -1.0f, 0.0f, // 左中
+//        1.0f,  1.0f, // 右上
+//        1.0f,  0.0f, // 右中
+//        1.0f,  -1.0f, // 右下
+//        -1.0f, -1.0f, // 左下
+//    };
+//    GLfloat textureCoordinates[] = {
+//        0.0f, 1.0f, // 左上
+//        0.0f, 0.0f, // 左下
+//        1.0f, 1.0f, // 右上
+//        1.0f, 0.0f, // 右下
+//    };
     
-    GLfloat firstTexCoods[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f
+    GLfloat textureCoordinates1[] = {
+        0.0f, 1.0f, // 左上
+        0.0f, 0.0f, // 左下
+        1.0f, 1.0f, // 右上
+        1.0f, 0.0f, // 右下
     };
+
     
-    GLfloat secondTexCoods[] = {
-        0.0f, 0.0f,
-        1.0f, 0.0f,
-        0.0f, 1.0f,
-        1.0f, 1.0f
-    };
-    glVertexAttribPointer(_position, 2, GL_FLOAT, 0, 0, positions);
-    glVertexAttribPointer(_inputTexture1Coordinate, 2, GL_FLOAT, 0, 0, firstTexCoods);
-    glVertexAttribPointer(_inputTexture2Coordinate, 2, GL_FLOAT, 0, 0, secondTexCoods);
+    glEnableVertexAttribArray(aPostion);
+    glVertexAttribPointer(aPostion, 2, GL_FLOAT, GL_FALSE, 0, vertices);
+    glEnableVertexAttribArray(texCoord1);
+    glVertexAttribPointer(texCoord1, 2, GL_FLOAT, GL_FALSE, 0, textureCoordinates1);
     
-    glDrawArrays(GL_TRIANGLES, 0, 4);
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
+
 
 - (void)initProgram {
     
     if (isInitProgram) {
         return;
     }
-    
-//    GLuint vertex = glCreateShader(GL_VERTEX_SHADER);
-//    const char *vertexC = [lsqTuSDKGPUCombineVertexShaderString UTF8String];
-//    int vertexStringLenght = (int)[lsqTuSDKGPUCombineVertexShaderString length];
-//    glShaderSource(vertex, 1, &vertexC, &vertexStringLenght);
-//    glCompileShader(vertex);
-//    checkCompileErrors_(vertex, @"VERTEX");
-//
-//    GLuint fragment = glCreateShader(GL_FRAGMENT_SHADER);
-//    const char *fragmentC = [lsqTuSDKGPUCombineFragmentShaderString UTF8String];
-//    int fragmentStringLenght = (int)[lsqTuSDKGPUCombineFragmentShaderString length];
-//    glShaderSource(fragment, 1, &fragmentC, &fragmentStringLenght);
-//    glCompileShader(fragment);
-//    checkCompileErrors_(fragment, @"FRAGMENT");
-//
-//    GLuint program = glCreateProgram();
-//    glAttachShader(program, vertex);
-//    glAttachShader(program, fragment);
-//    glLinkProgram(program);
-//    checkCompileErrors_(program, @"PROGRAM");
-    GLSLShader *shader = [GLSLShader shaderWithVertexPath:@"c_shader" fragmentPath:@"c_shader"];
-    _program = shader.program;
-    
-    _position = glGetAttribLocation(_program, "position");
-    _inputTexture1Coordinate = glGetAttribLocation(_program, "inputTextureCoordinate");
-    _inputTexture2Coordinate = glGetAttribLocation(_program, "inputTexture2Coordinate");
-    
-    _inputTexture1Buffer = glGetUniformLocation(_program, "inputImageTexture");
-    _inputTexture2Buffer = glGetUniformLocation(_program, "inputImageTexture2");
+
+    _shader = [GLSLShader shaderWithVertexPath:@"c_shader" fragmentPath:@"c_shader"];
+    _program = _shader.program;
     
     isInitProgram = YES;
 }
 
-- (void)createTextures {
+
+- (GLuint)createTextureWithImage:(UIImage *)image {
     
-    GLuint frameBuffer;
     glGenFramebuffers(1, &frameBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     
-    texture1 = [self createTexture:image1];
-    texture2 = [self createTexture:image2];
+    // effect
+    NSDictionary *options = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:[image CGImage]
+                                                               options:options
+                                                                 error:NULL];
+    glBindTexture(GL_TEXTURE_2D, textureInfo.name);
     
-    outFrameBuffer = frameBuffer;
+    // 纹理环绕方式
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    // 纹理过滤方式
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureInfo.name, 0);
+    return textureInfo.name;
 }
-
-- (GLuint)createTexture:(UIImage *)image {
+- (GLuint)createTexture:(UIImage *)image{
+    
+//    NSDictionary *options = @{GLKTextureLoaderOriginBottomLeft : @(YES)};
+//    GLKTextureInfo *textureInfo = [GLKTextureLoader textureWithCGImage:[image CGImage]
+//                                                               options:options
+//                                                                 error:NULL];
+//    glBindTexture(GL_TEXTURE_2D, textureInfo.name);
+//
+//    // 纹理环绕方式
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+//    // 纹理过滤方式
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+//    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+//
+////    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
+//    return textureInfo.name;
     
     NSData *imageData = UIImageJPEGRepresentation(image, 1);
     
@@ -227,10 +265,27 @@ void checkCompileErrors_(GLuint shader, NSString* type) {
     return texture;
 }
 
-- (CGImageRef)getImage {
-    glBindBuffer(GL_FRAMEBUFFER, outFrameBuffer);
-    int width = [UIScreen mainScreen].bounds.size.width;
-    int height = width;
+- (UIImage *)getImage {
+//    glBindBuffer(GL_FRAMEBUFFER, frameBuffer);
+//    int width = [UIScreen mainScreen].bounds.size.width;
+//    int height = width;
+//    int size = width * height * 4;
+//    GLubyte *buffer = malloc(size);
+//    glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+//    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer, size, NULL);
+//    int bitsPerComponent = 8;
+//    int bitsPerPixel = 32;
+//    int bytesPerRow = 4 * width;
+//    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+//    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+//    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+//    CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+//    return imageRef;
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
+    
+    CGFloat width = [self drawableWidth];
+    CGFloat height = [self drawableHeight];
     int size = width * height * 4;
     GLubyte *buffer = malloc(size);
     glReadPixels(0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
@@ -242,26 +297,26 @@ void checkCompileErrors_(GLuint shader, NSString* type) {
     CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
     CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
     CGImageRef imageRef = CGImageCreate(width, height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
-    return imageRef;
+    
+    // 此时的 imageRef 是上下颠倒的，调用 CG 的方法重新绘制一遍，刚好翻转过来
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);
+    UIImage *imageN = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    free(buffer);
+    return imageN;
 }
 
-//- (CVPixelBufferRef)imageToRGBPixelBuffer:(UIImage *)image {
-//    CGSize frameSize = CGSizeMake(CGImageGetWidth(image.CGImage),CGImageGetHeight(image.CGImage));
-//    NSDictionary *options =
-//    [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES],kCVPixelBufferCGImageCompatibilityKey,[NSNumber numberWithBool:YES],kCVPixelBufferCGBitmapContextCompatibilityKey,nil];
-//    CVPixelBufferRef pxbuffer = NULL;
-//    CVReturn status =
-//    CVPixelBufferCreate(kCFAllocatorDefault, frameSize.width, frameSize.height,kCVPixelFormatType_32BGRA, (__bridge CFDictionaryRef)options, &pxbuffer);
-//    NSParameterAssert(status == kCVReturnSuccess && pxbuffer != NULL);
-//    CVPixelBufferLockBaseAddress(pxbuffer, 0);
-//    void *pxdata = CVPixelBufferGetBaseAddress(pxbuffer);
-//    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
-//    CGContextRef context = CGBitmapContextCreate(pxdata, frameSize.width, frameSize.height,8, CVPixelBufferGetBytesPerRow(pxbuffer),rgbColorSpace,(CGBitmapInfo)kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-//    CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(image.CGImage),CGImageGetHeight(image.CGImage)), image.CGImage);
-//    CGColorSpaceRelease(rgbColorSpace);
-//    CGContextRelease(context);
-//    CVPixelBufferUnlockBaseAddress(pxbuffer, 0);
-//    return pxbuffer;
-//}
+// 获取渲染缓存宽度
+- (GLint)drawableWidth {
+    return [UIScreen mainScreen].bounds.size.width;
+}
+
+// 获取渲染缓存高度
+- (GLint)drawableHeight {
+    return [UIScreen mainScreen].bounds.size.width*1.5;
+}
 
 @end

@@ -97,51 +97,8 @@ typedef struct {
 
 // 冲framebuffer中拿出数据
 - (void)save {
-    // buffer
-    GLuint texture, frameBuffer;
-    glGenFramebuffers(1, &frameBuffer);
+    
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
-    
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, [self drawableWidth], [self drawableHeight], 0, GL_RGBA, GL_UNSIGNED_BYTE, NULL);
-    
-    
-    // 纹理方式
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    
-    // 帧缓存绑定纹理
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture, 0);
-    
-    // 设置窗口
-    glViewport(0, 0, [self drawableWidth], [self drawableHeight]);
-    
-    NSString *fileName = [self fileNameWith:(_currentIndex)];
-    _shader = [GLSLShader shaderWithVertexPath:fileName fragmentPath:fileName];
-    [_shader use];
-    
-    GLuint aPostion = [_shader getAttribLocation:@"aPos"];
-    GLuint texCoord = [_shader getAttribLocation:@"aTexCoord"];
-    GLuint textureLoc  = [_shader getUniformLocation:@"texture1"];
-    
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, _textureID);
-    glUniform1i(textureLoc, 0);
-    
-    [self uploadVertexArray];
-    
-    glEnableVertexAttribArray(aPostion);
-    glVertexAttribPointer(aPostion, 3, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, positionCoord));
-    
-    glEnableVertexAttribArray(texCoord);
-    glVertexAttribPointer(texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, textureCoord));
-    
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    
-    
     CGFloat width = [self drawableWidth];
     CGFloat height = [self drawableHeight];
     int size = width * height * 4;
@@ -212,7 +169,6 @@ typedef struct {
     }
     NSLog(@"--------textureID: %d", _textureID);
     
-    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
     
     // 设置窗口
@@ -239,8 +195,10 @@ typedef struct {
     glVertexAttribPointer(texCoord, 2, GL_FLOAT, GL_FALSE, sizeof(SenceVertex), NULL + offsetof(SenceVertex, textureCoord));
     
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-    [self.mContext presentRenderbuffer:GL_RENDERBUFFER];
     
+    glBindRenderbuffer(GL_RENDERBUFFER, renderBuffer);
+    [self.mContext presentRenderbuffer:GL_RENDERBUFFER];
+    glBindRenderbuffer(GL_RENDERBUFFER, 0);
     if (_currentIndex != 0) {
         [self startDisplaylink];
     }

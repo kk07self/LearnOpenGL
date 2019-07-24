@@ -46,7 +46,7 @@
 
 - (void)tusdk_viewDidLoad {
     // 统计
-    NSLog(@"hahahahaha---%@",self);
+//    NSLog(@"hahahahaha---%@",self);
     
     [self tusdk_viewDidLoad];
 }

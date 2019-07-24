@@ -22,17 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _previewLayer = [[CALayer alloc] init];
-    _previewLayer.frame = CGRectMake(0, 100, self.view.bounds.size.width, self.view.bounds.size.width);
-    [self.view.layer insertSublayer:_previewLayer atIndex:0];
     
-    
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CombineFilter *com = [[CombineFilter alloc] init];
     [com draw];
-    _previewLayer.contents = (__bridge id _Nullable)([com getImage]);
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[com getImage]];
+    imageView.frame = CGRectMake(0, 80, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width*1.5);
+    [self.view addSubview:imageView];
 }
 
 

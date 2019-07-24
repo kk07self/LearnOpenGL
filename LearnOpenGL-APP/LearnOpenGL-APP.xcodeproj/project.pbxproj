@@ -41,6 +41,7 @@
 		D7BCA4B12297E312001E4480 /* glitch.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA4A72297E312001E4480 /* glitch.vsh */; };
 		D7BCA4B42297E8E9001E4480 /* FilterShaderBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA4B32297E8E9001E4480 /* FilterShaderBar.m */; };
 		D7BCA5F0229D4CEA001E4480 /* UIViewController+Statistics.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA5EF229D4CEA001E4480 /* UIViewController+Statistics.m */; };
+		D7E350E922E8045C005166DE /* sample_filter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7E350E822E8045C005166DE /* sample_filter.jpg */; };
 		D7F349402293F73C00AEF51A /* GLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F3493F2293F73C00AEF51A /* GLSLViewController.m */; };
 		D7F349482293FED300AEF51A /* GLSLShader.m in Sources */ = {isa = PBXBuildFile; fileRef = D7F349472293FED300AEF51A /* GLSLShader.m */; };
 		D7F3494B2294064C00AEF51A /* shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7F349492294064C00AEF51A /* shader.fsh */; };
@@ -94,6 +95,7 @@
 		D7BCA4B32297E8E9001E4480 /* FilterShaderBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterShaderBar.m; sourceTree = "<group>"; };
 		D7BCA5EE229D4CEA001E4480 /* UIViewController+Statistics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Statistics.h"; sourceTree = "<group>"; };
 		D7BCA5EF229D4CEA001E4480 /* UIViewController+Statistics.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Statistics.m"; sourceTree = "<group>"; };
+		D7E350E822E8045C005166DE /* sample_filter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample_filter.jpg; path = "LearnOpenGL-APP/04-Filter/sample_filter.jpg"; sourceTree = SOURCE_ROOT; };
 		D7F3493E2293F73C00AEF51A /* GLSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLViewController.h; sourceTree = "<group>"; };
 		D7F3493F2293F73C00AEF51A /* GLSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLSLViewController.m; sourceTree = "<group>"; };
 		D7F349462293FED300AEF51A /* GLSLShader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLSLShader.h; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		D7B31DD722A7DFE30084D1FA /* 05-combination */ = {
 			isa = PBXGroup;
 			children = (
+				D7E350E822E8045C005166DE /* sample_filter.jpg */,
 				D7B31DDE22A8A6650084D1FA /* c_shader.fsh */,
 				D7B31DDF22A8A6650084D1FA /* c_shader.vsh */,
 				D7B31DD822A7E0320084D1FA /* CombinationViewController.h */,
@@ -301,6 +304,7 @@
 				D7BCA4AE2297E312001E4480 /* illusion.fsh in Resources */,
 				D7BCA4952297C88B001E4480 /* scale.vsh in Resources */,
 				D7F3494B2294064C00AEF51A /* shader.fsh in Resources */,
+				D7E350E922E8045C005166DE /* sample_filter.jpg in Resources */,
 				D7BCA4AA2297E312001E4480 /* flashWhite.fsh in Resources */,
 				D7F3494C2294064C00AEF51A /* shader.vsh in Resources */,
 				D7BCA4AD2297E312001E4480 /* shake.fsh in Resources */,
@@ -416,7 +420,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -469,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

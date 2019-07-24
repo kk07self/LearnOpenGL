@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LearnOpengles-iOS/LearnOpengles-iOS.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:LearnOpenGL/LearnOpenGL.xcodeproj">
    </FileRef>
    <FileRef

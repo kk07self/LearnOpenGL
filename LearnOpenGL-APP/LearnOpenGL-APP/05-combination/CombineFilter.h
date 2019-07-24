@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CombineFilter : NSObject
 
-- (CGImageRef)getImage;
+- (UIImage *)getImage;
 
 - (void)draw;
 
