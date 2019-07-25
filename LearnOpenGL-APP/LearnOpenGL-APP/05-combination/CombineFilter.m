@@ -145,7 +145,7 @@ void checkCompileErrors_(GLuint shader, NSString* type) {
     _shader = [GLSLShader shaderWithVertexPath:@"t_shader" fragmentPath:@"t_shader"];
     [_shader use];
     
-    [self draw9];
+    [self draw1];
 }
 
 

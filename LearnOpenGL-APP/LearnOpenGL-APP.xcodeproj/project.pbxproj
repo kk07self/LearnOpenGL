@@ -19,10 +19,19 @@
 		4BAB8B082292F44600A8D406 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B072292F44600A8D406 /* sample.jpg */; };
 		4BAB8B0D2295913700A8D406 /* girl.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0C2295913700A8D406 /* girl.jpg */; };
 		4BAB8B102295915D00A8D406 /* ContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAB8B0F2295915D00A8D406 /* ContentView.m */; };
+		D7A8385F22E95E5C00985AD2 /* SplitScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A8385E22E95E5C00985AD2 /* SplitScreenFilter.m */; };
+		D7AAF8F322E99F0500AB5B93 /* IMG_2538.JPG in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF8F222E99F0500AB5B93 /* IMG_2538.JPG */; };
+		D7AAF8F822E9A4E700AB5B93 /* MutipleScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF8F722E9A4E700AB5B93 /* MutipleScreenFilter.m */; };
+		D7AAF8FA22E9A4FF00AB5B93 /* m_shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF8F922E9A4FF00AB5B93 /* m_shader.vsh */; };
+		D7AAF8FC22E9A50A00AB5B93 /* m_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF8FB22E9A50A00AB5B93 /* m_shader.fsh */; };
+		D7AAF8FF22E9A52400AB5B93 /* ScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF8FE22E9A52400AB5B93 /* ScreenFilter.m */; };
+		D7AAF90322E9BFB000AB5B93 /* MutipleResourceScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF90222E9BFB000AB5B93 /* MutipleResourceScreenFilter.m */; };
+		D7AAF90622E9C0E000AB5B93 /* ms_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF90422E9C0E000AB5B93 /* ms_shader.fsh */; };
+		D7AAF90722E9C0E000AB5B93 /* ms_shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF90522E9C0E000AB5B93 /* ms_shader.vsh */; };
 		D7B31DDA22A7E0320084D1FA /* CombinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DD922A7E0320084D1FA /* CombinationViewController.m */; };
 		D7B31DDD22A7E1DD0084D1FA /* CombineFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */; };
-		D7B31DE022A8A6650084D1FA /* c_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7B31DDE22A8A6650084D1FA /* c_shader.fsh */; };
-		D7B31DE122A8A6650084D1FA /* c_shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7B31DDF22A8A6650084D1FA /* c_shader.vsh */; };
+		D7B31DE022A8A6650084D1FA /* s_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7B31DDE22A8A6650084D1FA /* s_shader.fsh */; };
+		D7B31DE122A8A6650084D1FA /* s_shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7B31DDF22A8A6650084D1FA /* s_shader.vsh */; };
 		D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA48B229641DE001E4480 /* LongLegsViewController.m */; };
 		D7BCA48E22968739001E4480 /* hahah.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D7BCA48D22968739001E4480 /* hahah.jpg */; };
 		D7BCA4922297BEF2001E4480 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7BCA4912297BEF2001E4480 /* FilterViewController.m */; };
@@ -69,12 +78,25 @@
 		4BAB8B0C2295913700A8D406 /* girl.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = girl.jpg; sourceTree = "<group>"; };
 		4BAB8B0E2295915D00A8D406 /* ContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentView.h; sourceTree = "<group>"; };
 		4BAB8B0F2295915D00A8D406 /* ContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentView.m; sourceTree = "<group>"; };
+		D7A8385D22E95E5C00985AD2 /* SplitScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplitScreenFilter.h; sourceTree = "<group>"; };
+		D7A8385E22E95E5C00985AD2 /* SplitScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SplitScreenFilter.m; sourceTree = "<group>"; };
+		D7AAF8F222E99F0500AB5B93 /* IMG_2538.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2538.JPG; sourceTree = "<group>"; };
+		D7AAF8F622E9A4E700AB5B93 /* MutipleScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MutipleScreenFilter.h; sourceTree = "<group>"; };
+		D7AAF8F722E9A4E700AB5B93 /* MutipleScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MutipleScreenFilter.m; sourceTree = "<group>"; };
+		D7AAF8F922E9A4FF00AB5B93 /* m_shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = m_shader.vsh; sourceTree = "<group>"; };
+		D7AAF8FB22E9A50A00AB5B93 /* m_shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = m_shader.fsh; sourceTree = "<group>"; };
+		D7AAF8FD22E9A52400AB5B93 /* ScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScreenFilter.h; sourceTree = "<group>"; };
+		D7AAF8FE22E9A52400AB5B93 /* ScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScreenFilter.m; sourceTree = "<group>"; };
+		D7AAF90122E9BFB000AB5B93 /* MutipleResourceScreenFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MutipleResourceScreenFilter.h; sourceTree = "<group>"; };
+		D7AAF90222E9BFB000AB5B93 /* MutipleResourceScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MutipleResourceScreenFilter.m; sourceTree = "<group>"; };
+		D7AAF90422E9C0E000AB5B93 /* ms_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ms_shader.fsh; sourceTree = "<group>"; };
+		D7AAF90522E9C0E000AB5B93 /* ms_shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ms_shader.vsh; sourceTree = "<group>"; };
 		D7B31DD822A7E0320084D1FA /* CombinationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombinationViewController.h; sourceTree = "<group>"; };
 		D7B31DD922A7E0320084D1FA /* CombinationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombinationViewController.m; sourceTree = "<group>"; };
 		D7B31DDB22A7E1DD0084D1FA /* CombineFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineFilter.h; sourceTree = "<group>"; };
 		D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombineFilter.m; sourceTree = "<group>"; };
-		D7B31DDE22A8A6650084D1FA /* c_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = c_shader.fsh; sourceTree = "<group>"; };
-		D7B31DDF22A8A6650084D1FA /* c_shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = c_shader.vsh; sourceTree = "<group>"; };
+		D7B31DDE22A8A6650084D1FA /* s_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = s_shader.fsh; sourceTree = "<group>"; };
+		D7B31DDF22A8A6650084D1FA /* s_shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = s_shader.vsh; sourceTree = "<group>"; };
 		D7BCA48A229641DE001E4480 /* LongLegsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongLegsViewController.h; sourceTree = "<group>"; };
 		D7BCA48B229641DE001E4480 /* LongLegsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongLegsViewController.m; sourceTree = "<group>"; };
 		D7BCA48D22968739001E4480 /* hahah.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahah.jpg; sourceTree = "<group>"; };
@@ -159,12 +181,49 @@
 			path = "LearnOpenGL-APP";
 			sourceTree = "<group>";
 		};
+		D7AAF8F422E9A4AA00AB5B93 /* splitScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D7A8385D22E95E5C00985AD2 /* SplitScreenFilter.h */,
+				D7A8385E22E95E5C00985AD2 /* SplitScreenFilter.m */,
+				D7B31DDE22A8A6650084D1FA /* s_shader.fsh */,
+				D7B31DDF22A8A6650084D1FA /* s_shader.vsh */,
+			);
+			path = splitScreen;
+			sourceTree = "<group>";
+		};
+		D7AAF8F522E9A4C300AB5B93 /* mutipleScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D7AAF8F622E9A4E700AB5B93 /* MutipleScreenFilter.h */,
+				D7AAF8F722E9A4E700AB5B93 /* MutipleScreenFilter.m */,
+				D7AAF8F922E9A4FF00AB5B93 /* m_shader.vsh */,
+				D7AAF8FB22E9A50A00AB5B93 /* m_shader.fsh */,
+			);
+			path = mutipleScreen;
+			sourceTree = "<group>";
+		};
+		D7AAF90022E9BF7500AB5B93 /* MutipleResourceScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D7AAF90122E9BFB000AB5B93 /* MutipleResourceScreenFilter.h */,
+				D7AAF90222E9BFB000AB5B93 /* MutipleResourceScreenFilter.m */,
+				D7AAF90422E9C0E000AB5B93 /* ms_shader.fsh */,
+				D7AAF90522E9C0E000AB5B93 /* ms_shader.vsh */,
+			);
+			path = MutipleResourceScreen;
+			sourceTree = "<group>";
+		};
 		D7B31DD722A7DFE30084D1FA /* 05-combination */ = {
 			isa = PBXGroup;
 			children = (
+				D7AAF90022E9BF7500AB5B93 /* MutipleResourceScreen */,
+				D7AAF8FD22E9A52400AB5B93 /* ScreenFilter.h */,
+				D7AAF8FE22E9A52400AB5B93 /* ScreenFilter.m */,
+				D7AAF8F522E9A4C300AB5B93 /* mutipleScreen */,
+				D7AAF8F422E9A4AA00AB5B93 /* splitScreen */,
+				D7AAF8F222E99F0500AB5B93 /* IMG_2538.JPG */,
 				D7E350E822E8045C005166DE /* sample_filter.jpg */,
-				D7B31DDE22A8A6650084D1FA /* c_shader.fsh */,
-				D7B31DDF22A8A6650084D1FA /* c_shader.vsh */,
 				4B71D10122E89CB0002DB1DB /* t_shader.vsh */,
 				4B71D10322E89CBF002DB1DB /* t_shader.fsh */,
 				D7B31DD822A7E0320084D1FA /* CombinationViewController.h */,
@@ -271,7 +330,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = KK;
+				ORGANIZATIONNAME = TUTU;
 				TargetAttributes = {
 					4BAB8AAC2292E04500A8D406 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -315,17 +374,22 @@
 				D7BCA4AA2297E312001E4480 /* flashWhite.fsh in Resources */,
 				D7F3494C2294064C00AEF51A /* shader.vsh in Resources */,
 				D7BCA4AD2297E312001E4480 /* shake.fsh in Resources */,
+				D7AAF8F322E99F0500AB5B93 /* IMG_2538.JPG in Resources */,
+				D7AAF8FC22E9A50A00AB5B93 /* m_shader.fsh in Resources */,
+				D7AAF90722E9C0E000AB5B93 /* ms_shader.vsh in Resources */,
 				4BAB8ABD2292E04900A8D406 /* LaunchScreen.storyboard in Resources */,
 				D7BCA4AC2297E312001E4480 /* shake.vsh in Resources */,
-				D7B31DE122A8A6650084D1FA /* c_shader.vsh in Resources */,
+				D7AAF90622E9C0E000AB5B93 /* ms_shader.fsh in Resources */,
+				D7B31DE122A8A6650084D1FA /* s_shader.vsh in Resources */,
 				4B71D10422E89CBF002DB1DB /* t_shader.fsh in Resources */,
 				D7BCA4AB2297E312001E4480 /* normal.fsh in Resources */,
+				D7AAF8FA22E9A4FF00AB5B93 /* m_shader.vsh in Resources */,
 				D7BCA49D2297E2E9001E4480 /* soulOut.fsh in Resources */,
 				4BAB8B0D2295913700A8D406 /* girl.jpg in Resources */,
 				4BAB8ABA2292E04900A8D406 /* Assets.xcassets in Resources */,
 				D7BCA49C2297E2E9001E4480 /* soulOut.vsh in Resources */,
 				D7BCA4AF2297E312001E4480 /* normal.vsh in Resources */,
-				D7B31DE022A8A6650084D1FA /* c_shader.fsh in Resources */,
+				D7B31DE022A8A6650084D1FA /* s_shader.fsh in Resources */,
 				4BAB8AB82292E04500A8D406 /* Main.storyboard in Resources */,
 				4BAB8B082292F44600A8D406 /* sample.jpg in Resources */,
 				D7BCA4B02297E312001E4480 /* illusion.vsh in Resources */,
@@ -347,11 +411,15 @@
 				4BAB8AB52292E04500A8D406 /* TBViewController.m in Sources */,
 				4BAB8AC02292E04900A8D406 /* main.m in Sources */,
 				4BAB8AC82292E56500A8D406 /* GLKitViewController.m in Sources */,
+				D7A8385F22E95E5C00985AD2 /* SplitScreenFilter.m in Sources */,
 				4BAB8AB22292E04500A8D406 /* AppDelegate.m in Sources */,
 				D7BCA48C229641DE001E4480 /* LongLegsViewController.m in Sources */,
 				D7BCA5F0229D4CEA001E4480 /* UIViewController+Statistics.m in Sources */,
+				D7AAF8F822E9A4E700AB5B93 /* MutipleScreenFilter.m in Sources */,
 				D7F349482293FED300AEF51A /* GLSLShader.m in Sources */,
 				4BAB8B102295915D00A8D406 /* ContentView.m in Sources */,
+				D7AAF8FF22E9A52400AB5B93 /* ScreenFilter.m in Sources */,
+				D7AAF90322E9BFB000AB5B93 /* MutipleResourceScreenFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,14 +562,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kirk.LearnOpenGL-APP00";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kirk.LearnOpenGL-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -512,14 +580,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HA5G797698;
+				DEVELOPMENT_TEAM = 9U2KRZU6GT;
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kirk.LearnOpenGL-APP00";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kirk.LearnOpenGL-APP";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
