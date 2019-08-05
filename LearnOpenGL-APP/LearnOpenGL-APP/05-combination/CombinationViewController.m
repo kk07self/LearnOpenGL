@@ -10,6 +10,7 @@
 #import "CombineFilter.h"
 #import "SplitScreenFilter.h"
 #import "MutipleScreenFilter.h"
+#import "MutipleResourceScreenFilter.h"
 
 @interface CombinationViewController ()
 
@@ -26,6 +27,11 @@
  mutilplescreen
  */
 @property (nonatomic, strong) MutipleScreenFilter *mutilplescreen;
+
+/**
+ MutipleResourceScreenFilter
+ */
+@property (nonatomic, strong) MutipleResourceScreenFilter *mutipleResourceScreen;
 @end
 
 @implementation CombinationViewController
@@ -37,13 +43,19 @@
     
     
     _imageView = [[UIImageView alloc] init];
-    _imageView.frame = CGRectMake(0, 80, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width*1.5);
+    _imageView.frame = CGRectMake(0, 80, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width);
     [self.view addSubview:_imageView];
     
-    _mutilplescreen = [[MutipleScreenFilter alloc] init];
-    _mutilplescreen.screenStyle = 8;
-    [_mutilplescreen progress];
-    _imageView.image = [_mutilplescreen getResultImage];
+    
+    _mutipleResourceScreen = [[MutipleResourceScreenFilter alloc] init];
+    _mutipleResourceScreen.screenStyle = 0;
+    [_mutipleResourceScreen progress];
+    _imageView.image = [_mutipleResourceScreen getResultImage];
+    
+//    _mutilplescreen = [[MutipleScreenFilter alloc] init];
+//    _mutilplescreen.screenStyle = 8;
+//    [_mutilplescreen progress];
+//    _imageView.image = [_mutilplescreen getResultImage];
     
 //    _split = [[SplitScreenFilter alloc] init];
 //    _split.screenFilterStyle = 1;
@@ -63,12 +75,19 @@
 //    [_split progress];
 //    _imageView.image = [_split getResultImage];
     
-    _mutilplescreen.screenStyle += 1;
-    if (_mutilplescreen.screenStyle == 9) {
-        _mutilplescreen.screenStyle = 0;
+//    _mutilplescreen.screenStyle += 1;
+//    if (_mutilplescreen.screenStyle == 9) {
+//        _mutilplescreen.screenStyle = 0;
+//    }
+//    [_mutilplescreen progress];
+//    _imageView.image = [_mutilplescreen getResultImage];
+    
+    _mutipleResourceScreen.screenStyle += 1;
+    if (_mutipleResourceScreen.screenStyle == 9) {
+        _mutipleResourceScreen.screenStyle = 0;
     }
-    [_mutilplescreen progress];
-    _imageView.image = [_mutilplescreen getResultImage];
+    [_mutipleResourceScreen progress];
+    _imageView.image = [_mutipleResourceScreen getResultImage];
 
 }
 

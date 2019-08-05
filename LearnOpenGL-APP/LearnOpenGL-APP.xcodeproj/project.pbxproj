@@ -28,6 +28,7 @@
 		D7AAF90322E9BFB000AB5B93 /* MutipleResourceScreenFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF90222E9BFB000AB5B93 /* MutipleResourceScreenFilter.m */; };
 		D7AAF90622E9C0E000AB5B93 /* ms_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF90422E9C0E000AB5B93 /* ms_shader.fsh */; };
 		D7AAF90722E9C0E000AB5B93 /* ms_shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = D7AAF90522E9C0E000AB5B93 /* ms_shader.vsh */; };
+		D7AAF90A22EAE28700AB5B93 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = D7AAF90822EAE28600AB5B93 /* glad.c */; };
 		D7B31DDA22A7E0320084D1FA /* CombinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DD922A7E0320084D1FA /* CombinationViewController.m */; };
 		D7B31DDD22A7E1DD0084D1FA /* CombineFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D7B31DDC22A7E1DD0084D1FA /* CombineFilter.m */; };
 		D7B31DE022A8A6650084D1FA /* s_shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = D7B31DDE22A8A6650084D1FA /* s_shader.fsh */; };
@@ -91,6 +92,9 @@
 		D7AAF90222E9BFB000AB5B93 /* MutipleResourceScreenFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MutipleResourceScreenFilter.m; sourceTree = "<group>"; };
 		D7AAF90422E9C0E000AB5B93 /* ms_shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ms_shader.fsh; sourceTree = "<group>"; };
 		D7AAF90522E9C0E000AB5B93 /* ms_shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ms_shader.vsh; sourceTree = "<group>"; };
+		D7AAF90822EAE28600AB5B93 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = "LearnOpenGL-APP/glad.c"; sourceTree = SOURCE_ROOT; };
+		D7AAF90922EAE28600AB5B93 /* glad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = glad.h; path = "LearnOpenGL-APP/glad.h"; sourceTree = SOURCE_ROOT; };
+		D7AAF90C22EAE34100AB5B93 /* khrplatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = khrplatform.h; sourceTree = "<group>"; };
 		D7B31DD822A7E0320084D1FA /* CombinationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombinationViewController.h; sourceTree = "<group>"; };
 		D7B31DD922A7E0320084D1FA /* CombinationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CombinationViewController.m; sourceTree = "<group>"; };
 		D7B31DDB22A7E1DD0084D1FA /* CombineFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineFilter.h; sourceTree = "<group>"; };
@@ -206,6 +210,9 @@
 		D7AAF90022E9BF7500AB5B93 /* MutipleResourceScreen */ = {
 			isa = PBXGroup;
 			children = (
+				D7AAF90B22EAE34100AB5B93 /* KHR */,
+				D7AAF90922EAE28600AB5B93 /* glad.h */,
+				D7AAF90822EAE28600AB5B93 /* glad.c */,
 				D7AAF90122E9BFB000AB5B93 /* MutipleResourceScreenFilter.h */,
 				D7AAF90222E9BFB000AB5B93 /* MutipleResourceScreenFilter.m */,
 				D7AAF90422E9C0E000AB5B93 /* ms_shader.fsh */,
@@ -213,6 +220,15 @@
 			);
 			path = MutipleResourceScreen;
 			sourceTree = "<group>";
+		};
+		D7AAF90B22EAE34100AB5B93 /* KHR */ = {
+			isa = PBXGroup;
+			children = (
+				D7AAF90C22EAE34100AB5B93 /* khrplatform.h */,
+			);
+			name = KHR;
+			path = "LearnOpenGL-APP/KHR";
+			sourceTree = SOURCE_ROOT;
 		};
 		D7B31DD722A7DFE30084D1FA /* 05-combination */ = {
 			isa = PBXGroup;
@@ -420,6 +436,7 @@
 				4BAB8B102295915D00A8D406 /* ContentView.m in Sources */,
 				D7AAF8FF22E9A52400AB5B93 /* ScreenFilter.m in Sources */,
 				D7AAF90322E9BFB000AB5B93 /* MutipleResourceScreenFilter.m in Sources */,
+				D7AAF90A22EAE28700AB5B93 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +580,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -581,6 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9U2KRZU6GT;
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "LearnOpenGL-APP/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

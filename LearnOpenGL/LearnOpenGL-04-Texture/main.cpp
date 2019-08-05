@@ -177,7 +177,7 @@ unsigned int creatTexture(const char* imagePath, const ImageType imageType) {
         // GL_CLAMP_TO_BORDER    超出的坐标为用户指定的边缘颜色。这个需要设置边缘颜色，float borderColor[] = { 1.0f, 1.0f, 0.0f, 1.0f }; glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        
+        GL_TEXTURE_BORDER_COLOR
         // 设置纹理过滤方式：GL_NEAREST和GL_LINEAR
         // GL_LINEAR: 线性过滤，(Bi)linear Filtering）它会基于纹理坐标附近的纹理像素，计算出一个插值，近似出这些纹理像素之间的颜色。
         // 邻近过滤，Nearest Neighbor Filtering 是OpenGL默认的纹理过滤方式。当设置为GL_NEAREST的时候，OpenGL会选择中心点最接近纹理坐标的那个像素。

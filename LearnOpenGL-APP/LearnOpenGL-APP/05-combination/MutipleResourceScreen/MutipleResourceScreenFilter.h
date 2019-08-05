@@ -44,6 +44,16 @@ typedef NS_ENUM(NSInteger, MutipleResourceScreenFilterStyle){
 @property (nonatomic, strong) UIImage *image;
 
 /**
+ images
+ */
+@property (nonatomic, strong) NSMutableArray *images;
+
+/**
+ 剪切 scaleFit/fillFit
+ */
+@property (nonatomic, assign) BOOL isClip;
+
+/**
  screentype
  */
 @property (nonatomic, assign) MutipleResourceScreenFilterStyle screenStyle;
